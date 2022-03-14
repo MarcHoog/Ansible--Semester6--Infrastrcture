@@ -9,8 +9,8 @@
 - hosts: all
   vars:
     public_key: "{{ lookup('file', '/opt/ansible/.ssh/id_ed25519.pub') }}"
-    gather_facts: no  
-    become: yes
+  gather_facts: no  
+  become: yes
   
   tasks:
     - name: Creating the user ansible-op
