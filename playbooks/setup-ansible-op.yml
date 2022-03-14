@@ -8,15 +8,15 @@
 ---
 - hosts: all
   vars:
-    public_key: "{{ lookup('file', '/opt/ansible/.ssh/id_ed25519.pub') }}"
-  gather_facts: no  
-  become: yes
+    public_key: "{{ lookup('file', '/opt/ansible/.ssh/id_ed25519.pub') }}"  
+  gather_facts: true
+  become: true
   
   tasks:
     - name: Creating the user ansible-op
       user:
         name:  "ansible-op"
-        create_home: yes
+        create_home: true
         shell: "/bin/bash"
 
     - name: Add ansible-op user to the sudoers
@@ -35,7 +35,7 @@
           regexp: '^PasswordAuthentication'
           line: "PasswordAuthentication no"
           state: present
-          backup: yes
+          backup: true
 
     - name: Disable Root Login
       lineinfile:
@@ -43,7 +43,7 @@
         regexp: '^PermitRootLogin'
         line: "PermitRootLogin no"
         state: present
-        backup: yes
+        backup: true
       notify:
         - Restart ssh
 
