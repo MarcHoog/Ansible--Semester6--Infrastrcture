@@ -5,25 +5,20 @@
 #   useradd -m -s /bin/bash sysop
 #   passwd Doekoe2020!
 #   echo -e ‘sysop\tALL=(ALL)\tNOPASSWD:\tALL’ > /etc/sudoers.d/sysop
-
-# Creates a simple user to Show to teacher
-#   sudo -i
-#   useradd -m -s /bin/bash Test123
-#   passwd Test123
 ---
 - hosts: all
   vars:
-    - public_key: "{{ lookup('file', '/opt/ansible/.ssh/id_ed25519.pub') }}"
-  gather_facts: no
-  become: yes
+    public_key: "{{ lookup('file', '/opt/ansible/.ssh/id_ed25519.pub') }}"
+    gather_facts: no  
+    become: yes
+  
   tasks:
-    
     - name: Creating the user ansible-op
       user:
         name:  "ansible-op"
         create_home: yes
-        shell: "/usr/sbin/nologin"
-    
+        shell: "/bin/bash"
+
     - name: Add ansible-op user to the sudoers
       copy:
         dest:  "/etc/sudoers.d/ansible-op"
@@ -51,7 +46,7 @@
         backup: yes
       notify:
         - Restart ssh
-        
+
   handlers:
     - name: Restart ssh
       service:
