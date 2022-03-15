@@ -4,3 +4,6 @@
   tasks:
     - name: Display hosts contents
       command: cat /etc/hosts
+      register: out
+
+    - debug: var=out.stdout_lines
