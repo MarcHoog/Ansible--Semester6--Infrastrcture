@@ -1,0 +1,20 @@
+---
+- name: Install some harmless packages on my Ubuntu testing nodes
+  hosts: testnode
+  vars:
+    packages:
+      - name: tree
+        reguired: true
+      - name: cmatrix
+        required: true
+  
+  tasks: 
+    - name: Install "{{ packages.name }}" on Debian
+      apt:
+        name: "{{ item.name }}"
+        state: present
+      
+      when: ansible_os_family == "Debian"   and
+            packages.required == true
+
+      loop: "{{ packages }}"
