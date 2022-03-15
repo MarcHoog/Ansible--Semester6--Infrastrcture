@@ -10,6 +10,7 @@
   
   tasks: 
     - name: Install "{{ item.name }}" on Debian
+      become: true
       apt:
         name: "{{ item.name }}"
         state: present
