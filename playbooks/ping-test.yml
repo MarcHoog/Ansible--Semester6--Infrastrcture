@@ -1,0 +1,7 @@
+#   Just a simple ping test
+---
+- hosts: localhost
+  tasks:
+    - name: ping
+      ping:
+    

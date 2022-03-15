@@ -1,2 +1,4 @@
-[test]
-testnode ansible_host=10.0.0.200
+testnode ansible_host=10.0.0.200 ansible_connection=ssh
+
+[test_machines]
+testnode 
