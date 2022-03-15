@@ -9,12 +9,12 @@
         required: true
   
   tasks: 
-    - name: Install "{{ packages.name }}" on Debian
+    - name: Install "{{ item.name }}" on Debian
       apt:
         name: "{{ item.name }}"
         state: present
       
       when: ansible_os_family == "Debian"   and
-            packages.required == true
+            item.required == true
 
       loop: "{{ packages }}"
