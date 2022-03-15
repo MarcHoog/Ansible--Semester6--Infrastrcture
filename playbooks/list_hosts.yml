@@ -1,0 +1,6 @@
+---
+- hosts: all
+  name: list all entry's in host file
+  tasks:
+    - name: Display hosts contents
+      command: cat /etc/hosts
