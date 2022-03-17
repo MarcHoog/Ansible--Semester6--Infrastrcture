@@ -30,7 +30,7 @@
 #  !    import_playbook: install_git.yml
 
     - name: clone ansible repository
-      ansbile.builtin.git:
+      ansible.builtin.git:
         repo: "{{ repository_path }}" 
         dest: "/opt/ansible/{{ branche.name }}"
         version: "{{ branche.name }}"
