@@ -7,7 +7,7 @@
 # The Ansible operator key.pub must excist within the repository,
 # Or the repository has to be a public repository
 ---
-- host: ansible_srv1
+- hosts: ansible_srv1
   vars:
     branches:
       - name: main
