@@ -46,9 +46,10 @@
         clone: true
         force: yes  
         update: true
-      
-      loop: "{{ branches }}"
       register: git_result
+      ignore_errors: true
+      loop: "{{ branches }}"
+      
 
     - debug:
         msg: "{{ git_result }}"
