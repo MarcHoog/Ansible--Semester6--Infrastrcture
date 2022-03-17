@@ -13,8 +13,8 @@
     - name: clone ansible repository
       ansible.builtin.git:
         repo: "{{ repository_path }}" 
-        dest: "/opt/webhook/{{ item.name }}"
-        version: "{{ item.name }}"
+        dest: "/opt/ansible/webhook/"
+        version: "main"
         clone: true
         force: yes  
         update: true

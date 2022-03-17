@@ -26,6 +26,7 @@
       ansible.builtin.file:
         path: "{{ item.path }}"
         state: absent
+      
       with_items: "{{ found_files['files'] }}"
 
 # Clones/Updates the branches that are defined here
@@ -37,6 +38,7 @@
         clone: true
         force: yes  
         update: true
+     
       register: git_result
       ignore_errors: true
       loop: "{{ branches }}"
