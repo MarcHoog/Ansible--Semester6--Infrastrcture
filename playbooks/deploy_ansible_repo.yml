@@ -34,7 +34,7 @@
         repo: "{{ repository_path }}" 
         dest: "/opt/ansible/{{ item.name }}"
         version: "{{ item.name }}"
-        update: yes
+        update: true
 
       when: item.required == true
       loop: "{{ branches }}"
