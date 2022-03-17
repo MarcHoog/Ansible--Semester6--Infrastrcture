@@ -26,8 +26,8 @@
         home: "/opt/ansible"
         shell: "/bin/bash"
   
-    - name: install git
-      import_playbook: install_git.yml
+#  !  - name: install git
+#  !    import_playbook: install_git.yml
 
     - name: clone ansible repository
       ansbile.builtin.git:
