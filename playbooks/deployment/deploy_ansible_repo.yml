@@ -34,7 +34,8 @@
         state: absent
       debug:
         msg: "{{ item }}"
-      with_items: "{{ found_files }}"
+      
+      loop: "{{ found_files }}"
 
     - name: clone / update ansible repository and branches
       ansible.builtin.git:
