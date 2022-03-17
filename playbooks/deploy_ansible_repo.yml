@@ -32,7 +32,7 @@
     - name: clone ansible repository
       ansbile.builtin.git:
         repo: "{{ repository_path }}" 
-        dest: "/opt/ansible/code/{{ branche.name }}"
+        dest: "/opt/ansible/{{ branche.name }}"
         version: "{{ branche.name }}"
         update: yes
 
