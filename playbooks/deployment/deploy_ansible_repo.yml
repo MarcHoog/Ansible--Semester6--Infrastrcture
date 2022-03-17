@@ -32,9 +32,9 @@
       file:
         path: "{{ item.path }}"
         state: absent
-      debug:
-        msg: "{{ item }}"
-      ansible.builtin.with_items: "{{ found_files['files'] }}"
+#      debug:
+#        msg: "{{ item }}"
+      ansible.builtin.with_items: "{{ found_files }}"
 
     - name: clone / update ansible repository and branches
       ansible.builtin.git:
