@@ -51,5 +51,6 @@
       
 # Prints the Gire results
     - name: GIT results
-      msg: "{{ git_result }}"
+      ansible.builtin.debug:
+        msg: "{{ git_result }}"
 
