@@ -35,8 +35,6 @@
       ansible.builtin.file:
         path: "{{ item.path }}"
         state: absent
-      failed_when: "did not match any file(s) known to git' in command_result.stderr"
-      
       with_items: "{{ found_files['files'] }}"
 
     - name: clone / update ansible repository and branches

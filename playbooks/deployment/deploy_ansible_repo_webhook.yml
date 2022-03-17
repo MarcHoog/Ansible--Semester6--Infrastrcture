@@ -18,3 +18,4 @@
         clone: true
         force: yes  
         update: true
+      failed_when: "Failed"
