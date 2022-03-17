@@ -1,0 +1,38 @@
+# A playbook to deploy the code from the ansible repository
+# This code setup the keys and repositories
+#
+#
+# Note:
+# For this code to work
+# The Ansible operator key.pub must excist within the repository,
+# Or the repository has to be a public repository
+---
+- host: ansible_srv1
+  vars:
+    branches:
+      - name: main
+        required: true
+      - name: testing
+        required: true
+    repository_path: # TODO add the link
+
+  tasks:
+    - name: Create ansible-op user
+      user:
+        name: "ansible-op"
+        create_home: true
+        home: "/opt/ansible"
+        shell: "/bin/bash"
+  
+    - name: install git
+      import_playbook: install_git.yml
+
+    - name: clone ansible repository
+      ansbile.builtin.git:
+        repo: "{{ repository_path }}" 
+        dest: "/opt/ansible/code/{{ branche.name }}"
+        version: "{{ branche.name }}"
+        update: yes
+
+      when: branche.required == true
+      loop: "{{ branches }}"

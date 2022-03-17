@@ -1,10 +1,5 @@
-#   Pre work
-
-# If there is No user yet called sysop
-#   sudo -i
-#   useradd -m -s /bin/bash sysop
-#   passwd Doekoe2020!
-#   echo -e ‘sysop\tALL=(ALL)\tNOPASSWD:\tALL’ > /etc/sudoers.d/sysop
+# ! This is the ansible_operator file for the clients this is not meant
+# ! For the ansbile servers
 ---
 - hosts: all
   vars:
