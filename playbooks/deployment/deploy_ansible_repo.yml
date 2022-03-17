@@ -24,17 +24,14 @@
       ansible.builtin.find:
         paths: "/opt/ansible/code"
         file_type: directory
-        exclude: branches
+        exclude: "{{ branches }}"
       
       register: found_files
 
     - name: remove unused brances
-      file:
+      ansible.builtin.file:
         path: "{{ item.path }}"
-        state: absent
-      debug:
-        msg: "{{ item }}"
-      
+        state: absent    
       loop: "{{ found_files }}"
 
     - name: clone / update ansible repository and branches
