@@ -6,6 +6,10 @@
 # For this code to work
 # The Ansible operator key.pub must excist within the repository,
 # Or the repository has to be a public repository
+#
+#
+# Note:
+# This command was made to test this playbook
 ---
 - hosts: ansible_srv1
   vars:
@@ -16,7 +20,7 @@
         required: true
       - name: developing
         required: true
-    repository_path: # TODO add the link
+    repository_path: "git@github.com:MarcHoog/Ansible.git"
 
   tasks:
     - name: Create ansible-op user
@@ -25,16 +29,15 @@
         create_home: true
         home: "/opt/ansible"
         shell: "/bin/bash"
-  
-    - name: install git
-      import_playbook: install_git.yml
 
     - name: clone ansible repository
-      ansbile.builtin.git:
+      ansible.builtin.git:
         repo: "{{ repository_path }}" 
-        dest: "/opt/ansible/code/{{ branche.name }}"
-        version: "{{ branche.name }}"
-        update: yes
+        dest: "/opt/ansible/{{ item.name }}"
+        version: "{{ item.name }}"
+        clone: true
+        force: yes  
+        update: true
 
-      when: branche.required == true
+      when: item.required == true
       loop: "{{ branches }}"
