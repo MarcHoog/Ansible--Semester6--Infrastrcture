@@ -15,21 +15,35 @@
   name: Deploy ansible repository
   vars:
     branches:
-      - name: main
-        required: true
-      - name: development
-        required: true
+      - "main"
+      - "development"
     repository_path: "git@github.com:MarcHoog/Ansible.git"
 
   tasks:
-    - name: clone ansible repository
+    
+    - name: capture unused branches
+      find:
+        paths: /opt/ansible/code
+        file_type: directory
+        exclude: item.name
+      
+      register: found_files
+      with items: "{{ branches[branch] }}"
+
+    - name: remove unused brances
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      
+      with items: "{{ found_files['files'] }}"
+
+    - name: clone / update ansible repository and branches
       ansible.builtin.git:
         repo: "{{ repository_path }}" 
-        dest: "/opt/ansible/{{ item.name }}"
-        version: "{{ item.name }}"
+        dest: "/opt/ansible/code/{{ item }}"
+        version: "{{ item }}"
         clone: true
         force: yes  
         update: true
 
-      when: item.required == true
       loop: "{{ branches }}"
