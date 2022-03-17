@@ -1,23 +1,15 @@
 # A playbook to deploy the code from the ansible repository
-# This code setup the keys and repositories
-#
-#
-# Note:
-# For this code to work
-# The Ansible operator key.pub must excist within the repository,
-# Or the repository has to be a public repository
-#
-#
-# Note:
-# This command was made to test this playbook
+# This code just pulls and clones the defined repo
+# ! Make sure the repo is always accesible
 ---
 - hosts: ansbile_servers
   name: Deploy ansible repository
   vars:
+    repository_path: "git@github.com:MarcHoog/Ansible.git"
     branches:
       - "main"
       - "development"
-    repository_path: "git@github.com:MarcHoog/Ansible.git"
+
 
 # Finds all branche folders that are not in defined here
   tasks:
@@ -53,4 +45,6 @@
     - name: GIT results
       ansible.builtin.debug:
         msg: "{{ git_result }}"
+
+# TODO LOG THESE RESULTS SOMEWHERE
 
