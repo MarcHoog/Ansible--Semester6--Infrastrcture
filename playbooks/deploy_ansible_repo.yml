@@ -6,6 +6,10 @@
 # For this code to work
 # The Ansible operator key.pub must excist within the repository,
 # Or the repository has to be a public repository
+#
+#
+# Note:
+# This command was made to test this playbook
 ---
 - hosts: ansible_srv1
   vars:
