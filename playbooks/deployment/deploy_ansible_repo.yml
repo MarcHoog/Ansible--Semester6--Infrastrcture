@@ -25,10 +25,10 @@
         paths: "/opt/ansible/code"
         file_type: directory
         exclude: "{{ branches }}"
-      
-      register: found_files
       debug:
         msg: "{{ found_files }}"
+      register: found_files
+
 
     - name: remove unused brances
       ansible.builtin.file:
