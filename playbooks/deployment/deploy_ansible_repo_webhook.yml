@@ -1,0 +1,20 @@
+---
+  - hosts: ansible_srv1 
+    name:  deploy ansible repo w1ebhook
+    vars:
+      repository_path: "git@github.com:MarcHoog/PythonWebhook.git"
+
+    tasks:
+    - name: Create Webhook user
+    # TODO ^
+
+    - name: Create system D file
+
+    - name: clone ansible repository
+      ansible.builtin.git:
+        repo: "{{ repository_path }}" 
+        dest: "/opt/webhook/{{ item.name }}"
+        version: "{{ item.name }}"
+        clone: true
+        force: yes  
+        update: true
