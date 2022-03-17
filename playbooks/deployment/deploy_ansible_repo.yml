@@ -17,9 +17,7 @@
     branches:
       - name: main
         required: true
-      - name: testing
-        required: true
-      - name: developing
+      - name: development
         required: true
     repository_path: "git@github.com:MarcHoog/Ansible.git"
 
