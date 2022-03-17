@@ -14,6 +14,8 @@
         required: true
       - name: testing
         required: true
+      - name: developing
+        required: true
     repository_path: # TODO add the link
 
   tasks:
