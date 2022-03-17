@@ -11,7 +11,8 @@
 # Note:
 # This command was made to test this playbook
 ---
-- hosts: ansible_srv1
+- hosts: ansbile_servers
+  name: Deploy ansible repository
   vars:
     branches:
       - name: main
@@ -23,13 +24,6 @@
     repository_path: "git@github.com:MarcHoog/Ansible.git"
 
   tasks:
-    - name: Create ansible-op user
-      user:
-        name: "ansible-op"
-        create_home: true
-        home: "/opt/ansible"
-        shell: "/bin/bash"
-
     - name: clone ansible repository
       ansible.builtin.git:
         repo: "{{ repository_path }}" 

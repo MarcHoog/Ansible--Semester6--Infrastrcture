@@ -1,8 +1,0 @@
-# ansbile playbook to make sure git is installed on servers
----
-- hosts: localhost
-  tasks:
-    - name: APT installing git
-      apt:
-
-    
