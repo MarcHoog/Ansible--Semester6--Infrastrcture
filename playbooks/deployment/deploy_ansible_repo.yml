@@ -20,15 +20,13 @@
     repository_path: "git@github.com:MarcHoog/Ansible.git"
 
   tasks:
-    
     - name: capture unused branches
-      find:
+      ansible.builtin.find:
         paths: "/opt/ansible/code"
         file_type: directory
-        exclude: item
+        exclude: branches
       
       register: found_files
-      with items: "{{ branches[branch] }}"
 
     - name: remove unused brances
       become: true
