@@ -29,13 +29,12 @@
       register: found_files
 
     - name: remove unused brances
-      become: true
       file:
         path: "{{ item.path }}"
         state: absent
       debug:
         msg: "{{ item }}"
-      with_items: "{{ found_files['files'] }}"
+      ansible.builtin.with_items: "{{ found_files['files'] }}"
 
     - name: clone / update ansible repository and branches
       ansible.builtin.git:
