@@ -23,9 +23,9 @@
     
     - name: capture unused branches
       find:
-        paths: /opt/ansible/code
+        paths: "/opt/ansible/code"
         file_type: directory
-        exclude: item.name
+        exclude: item
       
       register: found_files
       with items: "{{ branches[branch] }}"
