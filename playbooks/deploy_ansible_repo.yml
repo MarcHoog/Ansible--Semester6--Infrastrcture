@@ -31,6 +31,9 @@
         repo: "{{ repository_path }}" 
         dest: "/opt/ansible/{{ item.name }}"
         version: "{{ item.name }}"
+        single_branch: yes
+        clone: true
+        force: yes  
         update: true
 
       when: item.required == true
