@@ -17,6 +17,12 @@
 # sudo systemctl start nginx
 #
 ---
+ - name: cleanup of apt
+   ansible.builtin.apt:
+    autoclean: yes
+    autoremove: yes
+
+
  - name: add nginx apt repository
    ansible.builtin.apt_repository:
     repo: "{{ repo_path }}"
@@ -24,6 +30,9 @@
     update_cache: yes
 
  - name: install nginx
+   ansible.builtin.apt:
+    name: nginx
+    state: latest
 
 
  - name: copy nginx configuratie
