@@ -31,7 +31,7 @@
         path: "{{ item.path }}"
         state: absent
       
-      with_item: "{{ found_files[files]}}"
+      with_items: "{{ found_files[files]}}"
 
 # Clones/Updates the branches that are defined here
     - name: clone / update ansible repository and branches
