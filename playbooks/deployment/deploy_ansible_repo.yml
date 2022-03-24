@@ -21,13 +21,17 @@
 
       register: found_files
 
+    - name: Show found
+      ansible.builtin.debug:
+        msg: "{{ found_files }}"
+
 # Removes branches that are still in the code folder but not defind here
     - name: remove unused branches
       ansible.builtin.file:
         path: "{{ item.path }}"
         state: absent
       
-      loop: "{{ found_files}}"
+      with_files: "{{ found_files}}"
 
 # Clones/Updates the branches that are defined here
     - name: clone / update ansible repository and branches
