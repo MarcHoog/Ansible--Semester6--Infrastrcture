@@ -2,8 +2,10 @@
 ---
  - hosts: testnode
    name: Install roles on test node
-   role:
-    - nginx_ubuntu
-
+   tasks:
+    - name: include development roles
+      include_roles:
+        name: 
+        - nginx_ubuntu
 
        
