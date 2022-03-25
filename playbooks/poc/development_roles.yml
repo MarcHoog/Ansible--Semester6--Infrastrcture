@@ -3,9 +3,9 @@
  - hosts: testnode
    name: Install roles on test node
    tasks:
-    - name: include development roles
-      include_roles:
-        name: "{{ item }}"
-      
-      with_item: "{{ development_roles }}"
+     - name: include development roles
+       include_roles:
+         name: 
+           - nginx_ubuntu
+
        

@@ -3,8 +3,6 @@
 
 nginx_user: nginx
 
-nginx_repo_path: 
-
 nginx_base_path: /etc/nginx
 nginx_conf_file_path: "{{ nginx_base_path }}/nginx.conf"
 nginx_mime_file_path: "{{ nginx_base_path }}/mime.types"

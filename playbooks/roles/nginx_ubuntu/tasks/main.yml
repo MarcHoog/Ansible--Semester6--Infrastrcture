@@ -21,24 +21,18 @@
    ansible.builtin.apt:
     autoclean: yes
     autoremove: yes
+#  tags: apt
 
  - name: install nginx
    ansible.builtin.apt:
     name: nginx
     state: latest
     update_cache: yes
+#   tags: apt
 
- - name: copy nginx configuratie
+ - name: Ensures nginx_conf_path exsists
+   file:
+     path: "{{ nginx_conf_path }}"
 
-
- - name: ensure config path exsists
-
- 
- - name: remove default managed config
-
- 
- - name: 
-
-
-
-# vars file for python_webhook
+ - name: Ensure nginx is started and enabled to start at boot
+   service: name=nginx state=started
