@@ -43,14 +43,8 @@
         force: yes  
         update: true
      
-      register: git_result
       ignore_errors: true
       loop: "{{ branches }}"
-      
-# Prints the Gire results
-    - name: GIT results
-      ansible.builtin.debug:
-        msg: "{{ git_result }}"
-
+  
 # TODO LOG THESE RESULTS SOMEWHERE
 
