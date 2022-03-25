@@ -1,0 +1,4 @@
+---
+# vars file for ansible client
+ansible_public_key: "{{ lookup('file', '/opt/ansible/.ssh/id_ed25519.pub') }}"
+ansible_operator: "ansible-op"

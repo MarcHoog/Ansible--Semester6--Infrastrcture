@@ -2,10 +2,11 @@
 ---
  - hosts: testnode
    name: Install roles on test node
+   var:
+      role_path: /opt/ansible/code/development/role
    tasks:
     - name: include development roles
       include_role:
         name: 
-          - nginx_ubuntu
-
+          - "{{ role_path }}/nginx_ubuntu"
        
