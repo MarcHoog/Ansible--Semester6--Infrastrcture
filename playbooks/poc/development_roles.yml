@@ -1,0 +1,11 @@
+# this playbook is meant to install the roles that are assigned in the host var files
+---
+ - hosts: testnode
+   name: Install roles on test node
+   tasks:
+    - name: include development roles
+      include_roles:
+        name: "{{ item }}"
+      
+      with_item: "{{ development_roles }}"
+       

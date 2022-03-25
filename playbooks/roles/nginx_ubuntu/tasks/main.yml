@@ -22,18 +22,11 @@
     autoclean: yes
     autoremove: yes
 
-
- - name: add nginx apt repository
-   ansible.builtin.apt_repository:
-    repo: "{{ repo_path }}"
-    state: present
-    update_cache: yes
-
  - name: install nginx
    ansible.builtin.apt:
     name: nginx
     state: latest
-
+    update_cache: yes
 
  - name: copy nginx configuratie
 

@@ -1,11 +1,11 @@
 testnode ansible_host=10.0.0.200 ansible_connection=ssh
-ansible_srv1 ansible_host=localhost ansible_connection=local
+ansible ansible_host=localhost ansible_connection=local
 
 
 [development]
 testnode 
 
 [ansbile_servers]
-ansible_srv1
+ansible
 
 [dns]
