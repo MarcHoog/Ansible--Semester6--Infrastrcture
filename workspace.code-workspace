@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "roles/nginx_ubuntu"
+		},
+		{
+			"path": "roles/ansible_client"
+		},
+		{
+			"path": "roles/kubernetes_nodes"
+		},
+		{
+			"path": "roles/python_webhook"
+		},
+		{
+			"path": "roles/terraform"
+		}
+	],
+	"settings": {}
+}
