@@ -5,9 +5,7 @@
    name: Install roles on test node
    vars:
       role_path: /opt/ansible/code/development/role
-   tasks:
-    - name: include development roles
-      include_role:
-        name: 
-          - "{{ role_path }}/nginx_ubuntu"
+   role:
+      name: install test role of nginx
+      role: "/opt/ansible/code/development/role/nginx"
        
