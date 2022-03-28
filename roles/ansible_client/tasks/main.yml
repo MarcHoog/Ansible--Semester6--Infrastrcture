@@ -1,11 +1,13 @@
 ---
     - name: Creating the user {{ ansible_operator }}
+      become: true
       user:
         name:  "{{ ansible_operator }}"
         create_home: true
         shell: "/bin/bash"
 
     - name: Add {{ ansible_operator }} user to the sudoers
+      become: true
       copy:
         dest:  "/etc/sudoers.d/{{ ansible_operator }}"
         content:  "{{ ansible_operator }}  ALL=(ALL)  NOPASSWD: ALL"
@@ -16,14 +18,17 @@
                        state=present
 
     - name: Disable Password Authentication for all users
+      become: true
       lineinfile:
-          path: /etc/ssh/sshd_config
-          regexp: '^PasswordAuthentication'
-          line: "PasswordAuthentication no"
-          state: present
-          backup: true
+        path: /etc/ssh/sshd_config
+        regexp: '^PasswordAuthentication'
+        line: "PasswordAuthentication no"
+        state: present
+        backup: true
+
 
     - name: Disable Root Login
+      become: true
       lineinfile:
         path: /etc/ssh/sshd_config
         regexp: '^PermitRootLogin'
@@ -31,5 +36,6 @@
         state: present
         backup: true
       notify: restart_ssh
+      
 
 # tasks file for python_webhook
