@@ -6,5 +6,5 @@
    vars:
       role_path: /opt/ansible/code/development/role
    roles:
-      - "/opt/ansible/code/development/role/nginx"
+      - role: '/opt/ansible/code/development/role/nginx'
        
