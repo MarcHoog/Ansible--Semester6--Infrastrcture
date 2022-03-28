@@ -6,24 +6,24 @@
 #
 
 ---
- - name: cleanup of apt
-   ansible.builtin.apt:
-    autoclean: yes
-    autoremove: yes
+  - name: cleanup of apt
+    ansible.builtin.apt:
+      autoclean: yes
+      autoremove: yes
     become: true
 #  tags: apt
 
- - name: install nginx
-   ansible.builtin.apt:
-    name: nginx
-    state: latest
-    update_cache: yes
+  - name: install nginx
+    ansible.builtin.apt:
+      name: nginx
+      state: latest
+      update_cache: yes
     become: true
 #    tags: apt
 
- - name: Ensures nginx_conf_path exsists
-   file:
-     path: "{{ nginx_conf_path }}"
+  - name: Ensures nginx_conf_path exsists
+    file:
+      path: "{{ nginx_conf_path }}"
 
 
   #! - name deploy default configuration 
