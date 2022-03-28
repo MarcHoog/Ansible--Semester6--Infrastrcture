@@ -5,4 +5,5 @@
    name: Install roles on test node
    roles:
       - role: nginx
+      - role: ansible_client
        
