@@ -1,8 +1,9 @@
 # this playbook is meant to install the roles that are assigned in the host var files
+# kek
 ---
  - hosts: testnode
    name: Install roles on test node
-   var:
+   vars:
       role_path: /opt/ansible/code/development/role
    tasks:
     - name: include development roles
