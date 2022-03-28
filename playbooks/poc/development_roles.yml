@@ -3,8 +3,6 @@
 ---
  - hosts: testnode
    name: Install roles on test node
-   vars:
-      role_path: /opt/ansible/code/development/role
    roles:
-      - role: '/opt/ansible/code/development/role/nginx'
+      - role: nginx
        
