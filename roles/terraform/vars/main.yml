@@ -1,7 +1,3 @@
 ---
 # vars file for foo
-  operator: "terraform-op"
-  hashicorp_key: "https://apt.releases.hashicorp.com/gpg"
-  architecture: "{{ 'amd64' if ansible_architecture == 'x86_64' else '' }}"
-  repository_path: "deb [arch={{ architecture }}] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
 

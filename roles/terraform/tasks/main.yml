@@ -5,17 +5,14 @@
       name: "{{ operator }}"
       shell: "/bin/bash"
       create_home: true
+    tags: operator
     
-    when: operator|length > 0
-    
-
   - name: Add {{ operator }} user to the sudoers (When configured)
     become: true
     copy:
       dest:  "/etc/sudoers.d/{{ operator }}"
       content:  "{{ operator }}  ALL=(ALL) ALL"
-    
-    when: operator|length > 0
+    tags: operator
 
   - name: Deploy SSH key To {{ operator }} (When configured)
     become: true
@@ -25,8 +22,7 @@
       state: present
     
     with_items: "{{ operator_public_ssh_keys }}"
-    
-    when: operator|length > 0
+    tags: operator
 
   - name: add hashicorp key
     become: true

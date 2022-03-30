@@ -1,7 +1,7 @@
 ---
 operator_public_ssh_keys: []
 
-operator: ''
+operator: terraform-op
 
 hashicorp_key: "https://apt.releases.hashicorp.com/gpg"
 
