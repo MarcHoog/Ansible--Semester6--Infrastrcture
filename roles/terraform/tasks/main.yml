@@ -1,13 +1,10 @@
 ---
-
-  - name: become
-    become: true
-
   - name: Debug vars
     ansible.builtin.debug:
       msg: "{{ architecture }}"
 
   - name: add hashicorp key
+    become: true
     ansible.builtin.apt_key:
       url: "{{ hashicorp_key }}"
       state: present
