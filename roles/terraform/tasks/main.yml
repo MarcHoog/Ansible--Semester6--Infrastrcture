@@ -1,16 +1,21 @@
 ---
-  - name: Create {{ operator }}
+  - name: Create {{ operator }} (When configured)
     become: true
     user:
       name: "{{ operator }}"
       shell: "/bin/bash"
       create_home: true
+    
+    when: "{{ opperator }} == true"
+    
 
-  - name: Add {{ operator }} user to the sudoers
+  - name: Add {{ operator }} user to the sudoers (When configured)
     become: true
     copy:
       dest:  "/etc/sudoers.d/{{ operator }}"
       content:  "{{ operator }}  ALL=(ALL) ALL"
+    
+    when: "{{ opperator }} == true"
 
   - name: Deploy SSH key To {{ operator }} (When configured)
     become: true
@@ -18,7 +23,10 @@
       user: "{{ operator }}"
       key: "{{ item }}"
       state: present
+    
     with_items: "{{ operator_public_ssh_keys }}"
+    
+    when: "{{ opperator }} == true"
 
   - name: add hashicorp key
     become: true
