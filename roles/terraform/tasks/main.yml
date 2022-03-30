@@ -1,7 +1,7 @@
 ---
   - name: Debug vars
     ansible.builtin.debug:
-      msg: "{{ architecture }}"
+      msg: "{{ 'amd64' if ansible_architecture == 'x86_64' else '' }}"
 #
 #  - name: add hashicorp key
 #    ansible.builtin.apt_key:
