@@ -1,6 +1,6 @@
 #! Makes use of the terraform role
 ---
-- hosts: teraform_servers
+- hosts: testnode
   name: Deploy the terraform role on the terraform group
   tasks:
     - name: 'Deploying, operator applied'
