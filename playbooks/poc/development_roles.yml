@@ -6,4 +6,5 @@
    roles:
       - role: nginx
       - role: ansible_client
+      - role: terraform
        
