@@ -1,17 +1,8 @@
 #! Makes use of the terraform role
 ---
-- hosts: testnode
+- hosts: teraform_servers
   name: Deploy the terraform role on the terraform group
-  vars_prompt:
-
-    - name: public_key
-      prompt: Public SSH keys you want to deploy to operator
-      private: yes
-
   tasks:
-
     - name: 'Deploying, operator applied'
       include_role:
         name: terraform
-      vars:
-        operator_public_ssh_keys: "{{ public_key }}"

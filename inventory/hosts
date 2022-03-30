@@ -1,13 +1,17 @@
-testnode ansible_host=10.0.0.200 ansible_connection=ssh
-kube-slave-01 ansible_host=10.8.
-kube-slave-02 ansible_host=10.8.
-kube-slave-03 ansible_host=10.8.
-kube-slave-04 ansible_host=10.8.
+testnode        ansible_host=10.0.0.200     ansible_connection=ssh
+kube-slave-01   ansible_host=10.8.
+kube-slave-02   ansible_host=10.8.
+kube-slave-03   ansible_host=10.8.
+kube-slave-04   ansible_host=10.8.
 
-ansible ansible_host=localhost ansible_connection=local
+ansible         ansible_host=localhost      ansible_connection=local
+teraform        ansible_host=10.0.0.2       ansible_connection=ssh 
 
 [development]
 testnode 
+
+[teraform_servers]
+teraform
 
 [ansbile_servers]
 ansible
