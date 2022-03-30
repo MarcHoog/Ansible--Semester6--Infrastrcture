@@ -1,2 +1,12 @@
 ---
+  - name: add hashicorp key
+
+  - name: add hashicorp repository
+
+  - name: installing terraform
+    apt: 
+      name: terraform
+      state: latest
+      update_cache: true
+
 # tasks file for foo
