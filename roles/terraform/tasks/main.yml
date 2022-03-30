@@ -1,4 +1,23 @@
 ---
+  - name: Create {{ operator }}
+    become: true
+    user:
+      name: "{{ operator }}"
+      create_home: true
+
+  - name: Add {{ operator }} user to the sudoers
+    become: true
+    copy:
+      dest:  "/etc/sudoers.d/{{ operator }}"
+      content:  "{{ operator }}  ALL=(ALL) ALL"
+
+  - name: Deploy SSH key To {{ operator }} (When configured)
+    authorized_key: 
+      user: "{{ operator }}"
+      key: "{{ item }}"
+      state: present
+    with_items: "{{ operator_public_ssh_keys }}"
+
   - name: Debug vars
     ansible.builtin.debug:
       msg: "{{ architecture }}"
