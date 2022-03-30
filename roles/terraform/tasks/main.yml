@@ -10,11 +10,13 @@
       state: present
 
   - name: add hashicorp repository
+    become: true
     ansible.builtin.apt_repository:
       repo: "{{ repository_path }}"
       state: present
 
   - name: installing terraform
+    become: true
     ansible.builtin.apt: 
       name: terraform
       state: latest
