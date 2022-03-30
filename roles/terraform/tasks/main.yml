@@ -1,10 +1,20 @@
 ---
+  - name: Debug vars
+    ansible.builtin.debug:
+      msg: "{{ architecture }}"
+
   - name: add hashicorp key
+    ansible.builtin.apt_key:
+      url: "{{ hashicorp_key }}"
+      state: present
 
   - name: add hashicorp repository
+    ansible.builtin.apt_repository:
+      repo: 
+      state: present
 
   - name: installing terraform
-    apt: 
+    ansible.builtin.apt: 
       name: terraform
       state: latest
       update_cache: true
