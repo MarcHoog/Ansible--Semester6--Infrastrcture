@@ -1,22 +1,22 @@
 ---
   - name: Debug vars
     ansible.builtin.debug:
-      msg: "{{ 'amd64' if ansible_architecture == 'x86_64' else '' }}"
-
-  - name: add hashicorp key
-    ansible.builtin.apt_key:
-      url: "{{ hashicorp_key }}"
-      state: present
-
-  - name: add hashicorp repository
-    ansible.builtin.apt_repository:
-      repo: 
-      state: present
-
-  - name: installing terraform
-    ansible.builtin.apt: 
-      name: terraform
-      state: latest
-      update_cache: true
+      msg: "{{ architecture}}"
+#
+#  - name: add hashicorp key
+#    ansible.builtin.apt_key:
+#     url: "{{ hashicorp_key }}"
+#      state: present
+#
+#  - name: add hashicorp repository
+#    ansible.builtin.apt_repository:
+#      repo: 
+#      state: present
+#
+#  - name: installing terraform
+#    ansible.builtin.apt: 
+#      name: terraform
+#      state: latest
+#      update_cache: true
 
 # tasks file for foo
