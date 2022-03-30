@@ -1,7 +1,7 @@
 ---
   - name: Debug vars
     ansible.builtin.debug:
-      msg: "{{ architecture}}"
+      msg: "{{ architecture }}"
 #
 #  - name: add hashicorp key
 #    ansible.builtin.apt_key:
