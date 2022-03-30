@@ -12,6 +12,7 @@
       content:  "{{ operator }}  ALL=(ALL) ALL"
 
   - name: Deploy SSH key To {{ operator }} (When configured)
+    become: true
     authorized_key: 
       user: "{{ operator }}"
       key: "{{ item }}"
