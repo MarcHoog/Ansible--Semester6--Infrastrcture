@@ -26,7 +26,7 @@
     
     with_items: "{{ operator_public_ssh_keys }}"
     
-    when: "operator == true"
+    when: operator == true
 
   - name: add hashicorp key
     become: true
