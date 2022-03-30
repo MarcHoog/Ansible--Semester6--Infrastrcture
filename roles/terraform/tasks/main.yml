@@ -1,46 +1,25 @@
 ---
-  - name: operator tasks
-    tags: operator
+  - name: aptitude tasks
+    become: true
     block:
-    - name: Create {{ operator }} 
+    
+    - name: add hashicorp key
       become: true
-      user:
-        name: "{{ operator }}"
-        shell: "/bin/bash"
-        create_home: true
-
-    - name: Add {{ operator }} user to the sudoers
-      become: true
-      copy:
-        dest:  "/etc/sudoers.d/{{ operator }}"
-        content:  "{{ operator }}  ALL=(ALL) ALL"
-
-    - name: Deploy SSH key To {{ operator }} 
-      become: true
-      authorized_key: 
-        user: "{{ operator }}"
-        key: "{{ item }}"
+      ansible.builtin.apt_key:
+        url: "{{ hashicorp_key }}"
         state: present
-      
-      with_items: "{{ operator_public_ssh_keys }}"
 
-  - name: add hashicorp key
-    become: true
-    ansible.builtin.apt_key:
-      url: "{{ hashicorp_key }}"
-      state: present
+    - name: add hashicorp repository
+      become: true
+      ansible.builtin.apt_repository:
+        repo: "{{ repository_path }}"
+        state: present
 
-  - name: add hashicorp repository
-    become: true
-    ansible.builtin.apt_repository:
-      repo: "{{ repository_path }}"
-      state: present
-
-  - name: installing terraform
-    become: true
-    ansible.builtin.apt: 
-      name: terraform
-      state: latest
-      update_cache: true
+    - name: installing terraform
+      become: true
+      ansible.builtin.apt: 
+        name: terraform
+        state: latest
+        update_cache: true
 
 # tasks file for foo
