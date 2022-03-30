@@ -3,6 +3,11 @@
 - hosts: testnode
   name: Deploy the terraform role on the terraform group
   tasks:
-    - name: 'Deploying, operator applied'
+    
+    - name: 'Deploying terraform role'
       include_role:
         name: terraform
+
+    - name: 'Deploying terraform operator'
+
+      tag: operator
