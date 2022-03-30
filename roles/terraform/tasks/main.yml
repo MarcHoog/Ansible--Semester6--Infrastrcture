@@ -8,12 +8,12 @@
     ansible.builtin.apt_key:
       url: "{{ hashicorp_key }}"
       state: present
-#
+
   - name: add hashicorp repository
     ansible.builtin.apt_repository:
       repo: "{{ repository_path }}"
       state: present
-#
+
   - name: installing terraform
     ansible.builtin.apt: 
       name: terraform
