@@ -6,7 +6,7 @@
       shell: "/bin/bash"
       create_home: true
     
-    when: "operator == true"
+    when: operator|bool == True
     
 
   - name: Add {{ operator }} user to the sudoers (When configured)
@@ -15,7 +15,7 @@
       dest:  "/etc/sudoers.d/{{ operator }}"
       content:  "{{ operator }}  ALL=(ALL) ALL"
     
-    when: "operator == true"
+    when: operator|bool == True
 
   - name: Deploy SSH key To {{ operator }} (When configured)
     become: true
@@ -26,7 +26,7 @@
     
     with_items: "{{ operator_public_ssh_keys }}"
     
-    when: operator == true
+    when: operator|bool == True
 
   - name: add hashicorp key
     become: true
