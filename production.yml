@@ -1,9 +1,13 @@
-#! Makes use of the terraform role
 ---
-- hosts: terraform-servers
-  name: Deploy the terraform role on the terraform group
+
+- name: pinging
+  hosts: ALL
   tasks:
-    
+    ping:
+
+- name: Deploy the terraform role on the terraform group
+  hosts: terraform-servers
+  tasks:
     - name: 'Deploying terraform role'
       include_role:
         name: terraform
