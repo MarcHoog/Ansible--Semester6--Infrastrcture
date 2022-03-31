@@ -3,7 +3,8 @@
 - name: pinging
   hosts: ALL
   tasks:
-    ping:
+    - name: 'hoi'
+      ping:
 
 - name: Deploy the terraform role on the terraform group
   hosts: terraform-servers
