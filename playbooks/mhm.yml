@@ -6,5 +6,6 @@
         user:
           name:  "ansible-op"
           create_home: true
+          home: /home/ansible-op
           move_home: true
           shell: "/bin/bash"
