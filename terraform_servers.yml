@@ -9,5 +9,10 @@
         name: terraform
 
     - name: 'Deploying terraform operator'
-
+      include_role:
+        name: operator
+      vars:
+        operator:
+        operator_shell: "/bin/bash"
+        operator_sudo_rights: True
       tag: operator

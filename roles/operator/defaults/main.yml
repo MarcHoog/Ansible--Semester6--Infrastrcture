@@ -1,0 +1,8 @@
+---
+operator: "system-op"
+operator_home_directory: "/home/{{ operator }}"
+operator_shell: "/bin/bash"
+operator_sudo_rights: True
+operator_public_ssh_keys: []
+
+# defaults file for foo
