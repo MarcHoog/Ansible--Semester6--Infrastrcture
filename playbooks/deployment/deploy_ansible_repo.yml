@@ -15,7 +15,7 @@
   tasks:
     - name: capture unused branches
       ansible.builtin.find:
-        paths: "/opt/ansible/code"
+        paths: "/home/ansible-op/code"
         file_type: directory
         exclude: "{{ branches }}"
 
@@ -37,7 +37,7 @@
     - name: clone / update ansible repository and branches
       ansible.builtin.git:
         repo: "{{ repository_path }}" 
-        dest: "/opt/ansible/code/{{ item }}"
+        dest: "/home/ansible-op/code/{{ item }}"
         version: "{{ item }}"
         clone: true
         force: yes  

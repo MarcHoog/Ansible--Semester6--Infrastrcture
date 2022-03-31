@@ -2,10 +2,11 @@
 
 - name: pinging
   hosts: all
+  tags: everyone
   tasks:
     - name: 'hoi'
       include_role:
-        name: ansible_client
+        name: ansible
 
 - name: Deploy the terraform role on the terraform group
   hosts: terraform_servers
