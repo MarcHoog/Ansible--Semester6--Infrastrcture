@@ -35,7 +35,7 @@
         line: "PermitRootLogin no"
         state: present
         backup: true
-      notify: restart_ssh
+      notify: restart ssh
       
 
 # tasks file for python_webhook

@@ -1,6 +1,6 @@
 ---
 # handlers file for python_webhook
-  - name: restart_ssh
+  - name: restart ssh
     service:
-      name: ssh
+      name: sshd
       state: restarted
