@@ -1,6 +1,6 @@
 #! Makes use of the terraform role
 ---
-- hosts: testnode
+- hosts: terraform-servers
   name: Deploy the terraform role on the terraform group
   tasks:
     
