@@ -2,7 +2,7 @@
 # This code just pulls and clones the defined repo
 # ! Make sure the repo is always accesible
 ---
-- hosts: ansbile_servers
+- hosts: ansible
   name: Deploy ansible repository
   vars:
     repository_path: "git@github.com:MarcHoog/Ansible.git"
