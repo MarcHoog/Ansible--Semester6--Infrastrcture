@@ -7,6 +7,7 @@
 
 - name: Deploy the terraform role on the terraform group
   hosts: terraform-servers
+  tags: terraform
   tasks:
     - name: 'Deploying terraform role'
       include_role:
