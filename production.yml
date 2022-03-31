@@ -1,13 +1,13 @@
 ---
 
 - name: pinging
-  hosts: ALL
+  hosts: everyone
   tasks:
     - name: 'hoi'
       ping:
 
 - name: Deploy the terraform role on the terraform group
-  hosts: terraform-servers
+  hosts: terraform_servers
   tags: terraform
   tasks:
     - name: 'Deploying terraform role'
