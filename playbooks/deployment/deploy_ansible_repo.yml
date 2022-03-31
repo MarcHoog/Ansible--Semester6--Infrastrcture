@@ -10,7 +10,6 @@
       - "main"
       - "development"
 
-
 # Finds all branche folders that are not in defined here
   tasks:
     - name: capture unused branches
