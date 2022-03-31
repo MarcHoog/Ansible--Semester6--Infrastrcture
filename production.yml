@@ -1,7 +1,5 @@
 ---
 
-
-
 - name: pinging
   hosts: all
   tasks:
