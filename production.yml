@@ -27,7 +27,4 @@
         operator_sudo_rights: True
         operator_public_ssh_keys: "{{ marc_ssh_key }}"
 
-    - name: deploy terraform vars
-      import_playbook: deploy_terraform_variables.yml
-
     
