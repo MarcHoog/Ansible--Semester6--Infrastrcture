@@ -12,7 +12,7 @@
       include_role:
         name: operator
       vars:
-        operator:
+        operator: terraform-op
         operator_shell: "/bin/bash"
         operator_sudo_rights: True
       tag: operator
