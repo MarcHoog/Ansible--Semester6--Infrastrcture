@@ -17,6 +17,8 @@
         operator_sudo_rights: True
         operator_public_ssh_keys: "{{ marc_ssh_key }}"
 
-- name: include deploy_terraform_variables.yml
-  import_playbook: deploy_terraform_variables.yml
-  tags: deploy_vars
+    - name: 'Set terraform enviorment vars'
+      enviorment:
+        PM_API_TOKEN_ID: "{{ api_token_id }}"
+        PM_API_TOKEN_SCRET: "{{ api_token_secret }}"
+      when: PM_API_TOKEN_ID is defined and PM_API_TOKEN_SCRET is defined
