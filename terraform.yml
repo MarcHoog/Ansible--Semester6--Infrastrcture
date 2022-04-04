@@ -23,7 +23,7 @@
       become: True
       ansible.builtin.blockinfile:
         path: /home/terraform-op/.profile
-        marker: "<!--{mark} ansible managed block ---!>"
+        marker: "# <!--{mark} ansible managed block ---!> #"
         block: |
           PM_API_TOKEN_ID: {{ api_token_id }}
           PM_API_TOKEN_SCRET: {{ api_token_secret }}
