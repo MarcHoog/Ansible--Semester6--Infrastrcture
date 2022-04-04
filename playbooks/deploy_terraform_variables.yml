@@ -13,8 +13,8 @@
       prompt: What is terraform api token secret for proxmox connection
       private: true
 
-  tasks:
-    - name: set enviorment
-      enviorment:
-        PM_API_TOKEN_ID: "{{ api_token_id }}"
-        PM_API_TOKEN_SCRET: "{{ api_token_secret }}"
+#  tasks:
+#    - name: set enviorment
+#      enviorment:
+#        PM_API_TOKEN_ID: "{{ api_token_id }}"
+#        PM_API_TOKEN_SCRET: "{{ api_token_secret }}"
