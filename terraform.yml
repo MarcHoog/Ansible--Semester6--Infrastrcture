@@ -20,6 +20,7 @@
         operator_public_ssh_keys: "{{ marc_ssh_key }}"
 
     - name: Set terraform environment vars in terraform-op profile
+      become: True
       ansible.builtin.blockinfile:
         path: /home/terraform-op/.profile
         marker: "<!--{mark} ansible managed block ---!>"
