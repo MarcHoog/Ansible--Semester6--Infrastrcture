@@ -25,7 +25,6 @@
         path: /home/terraform-op/.profile
         marker: "# <!--{mark} ansible managed block ---!> #"
         block: |
-          PM_API_TOKEN_ID: {{ api_token_id }}
-          PM_API_TOKEN_SCRET: {{ api_token_secret }}
-          Thom is dom
+          export PM_API_TOKEN_ID={{ api_token_id }}
+          export PM_API_TOKEN_SCRET={{ api_token_secret }}
       when: api_token_id is defined and api_token_secret is defined
