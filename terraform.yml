@@ -27,4 +27,5 @@
         block: |
           PM_API_TOKEN_ID: {{ api_token_id }}
           PM_API_TOKEN_SCRET: {{ api_token_secret }}
+          Thom is dom
       when: api_token_id is defined and api_token_secret is defined
