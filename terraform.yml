@@ -1,3 +1,4 @@
+# For deploying terraform on different devices. 
 ---
 - name: Deploy the terraform role on the terraform group
   hosts: terraform
