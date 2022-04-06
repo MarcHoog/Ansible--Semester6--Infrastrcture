@@ -23,6 +23,7 @@
       reboot:
         reboot_timeout: 3600
       when: qemu_installed.changed
+      become: true
 
     - name: ensure Qemu guest agent is running on all machines. 
       ansible.builtin.systemd:
