@@ -8,7 +8,7 @@
       include_role:
         name: ansible
 
-    - name: uppdate
+    - name: apt-update
       command: apt update
       become: true
 
@@ -17,8 +17,14 @@
         name: qemu-guest-agent
         state: present
       become: true
+      register: qemu_installed
 
-    - name: ensure 
+    - name: Reboot a slow machine that might have lots of updates to apply
+      reboot:
+        reboot_timeout: 3600
+      when: qemu_installed.changed
+
+    - name: ensure Qemu guest agent is running on all machines. 
       ansible.builtin.systemd:
         state: started
         enabled: yes
