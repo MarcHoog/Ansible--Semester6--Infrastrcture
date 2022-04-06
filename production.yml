@@ -4,9 +4,16 @@
   hosts: all
   tags: everyone
   tasks:
-    - name: 'hoi'
+    - name: 'include ansible operator on all machines'
       include_role:
         name: ansible
+
+    - name: install qemu quest agent on all machines
+      ansible.builtin.apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+      become: true
 
 
 
