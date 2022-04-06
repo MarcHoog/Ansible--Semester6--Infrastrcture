@@ -10,6 +10,7 @@
 
     - name: uppdate
       command: apt update
+      become: true
 
     - name: install qemu quest agent on all machines
       ansible.builtin.apt:
