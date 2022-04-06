@@ -10,12 +10,13 @@
 
     - name: install qemu quest agent on all machines
       ansible.builtin.apt:
-        name: nginx
-        state: absent
+        name: qemu-quest-agent
+        state: present
         update_cache: yes
       become: true
 
     - name: ensure 
       ansible.builtin.systemd:
         state: started
-        name: Qemu
+        enabled: yes
+        name: qemu-guest-agent
