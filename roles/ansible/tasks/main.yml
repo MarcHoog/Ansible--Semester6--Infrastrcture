@@ -37,7 +37,7 @@
         state: present
         backup: true
       notify: restart ssh
-      when: inventory_hostname != ansible
+      when: inventory_hostname != "ansible"
       
 
 # tasks file for python_webhook
