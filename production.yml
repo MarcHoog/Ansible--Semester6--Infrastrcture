@@ -7,26 +7,25 @@
     - name: 'include ansible operator on all machines'
       include_role:
         name: ansible
+    
+    - name: install qemu 
+      block:
+        - name: apt-update
+          command: apt update
 
-    - name: apt-update
-      command: apt update
-      become: true
+        - name: install qemu quest agent on all machines
+          ansible.builtin.apt:
+            name: qemu-guest-agent
+            state: present
+          register: qemu_installed
 
-    - name: install qemu quest agent on all machines
-      ansible.builtin.apt:
-        name: qemu-guest-agent
-        state: present
-      become: true
-      register: qemu_installed
+        - name: Reboot a slow machine that might have lots of updates to apply
+          reboot:
+          when: qemu_installed.changed
 
-    - name: Reboot a slow machine that might have lots of updates to apply
-      reboot:
-      when: qemu_installed.changed
-      become: true
-
-    - name: ensure Qemu guest agent is running on all machines. 
-      ansible.builtin.systemd:
-        state: started
-        enabled: yes
-        name: qemu-guest-agent
+        - name: ensure Qemu guest agent is running on all machines. 
+          ansible.builtin.systemd:
+            state: started
+            enabled: yes
+            name: qemu-guest-agent
       become: true
