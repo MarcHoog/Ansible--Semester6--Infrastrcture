@@ -8,7 +8,7 @@
       include_role:
         name: ansible
     
-    - name: install qemu 
+    - name: install qemu-guest-agent
       block:
         - name: apt-update
           command: apt update
