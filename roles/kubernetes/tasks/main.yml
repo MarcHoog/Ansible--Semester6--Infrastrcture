@@ -1,6 +1,5 @@
 ---
-  - name: import tasks
-    import_tasks: "{{ role_path }}/tasks/containerd"
+  - include_tasks: containerd.yml
 
   - name: Installing dependencies
     block:
@@ -32,6 +31,5 @@
           state: present
     become: true
 
-  - name: import tasks
-    import_task: "{{ role_path }}/tasks/control_node"
+  - include_tasks: control_node.yml
     when: role == "controller"
