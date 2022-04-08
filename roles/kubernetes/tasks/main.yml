@@ -1,7 +1,6 @@
 ---
   - name: import tasks
-    import_task:
-      name: containerd
+    import_tasks: containerd
 
   - name: Installing dependencies
     block:
@@ -34,6 +33,5 @@
     become: true
 
   - name: import tasks
-    import_task:
-      name: control_node
+    import_task: control_node
     when: role == "controller"
