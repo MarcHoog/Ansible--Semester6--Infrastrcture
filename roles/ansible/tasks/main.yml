@@ -36,8 +36,6 @@
         line: "PermitRootLogin no"
         state: present
         backup: true
-      notify: 
-        - restart sshd
       when: inventory_hostname != "ansible"
       
 

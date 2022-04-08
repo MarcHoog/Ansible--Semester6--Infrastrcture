@@ -1,2 +1,64 @@
 ---
-# tasks file for kubernetes
+
+  #! We are also gonna look at other options then just docker but this one seems the easier of the two
+  - name: installs docker as the container runtime 
+    block:
+      - name: Create Docker config directory
+        file:
+          path: "/etc/docker"
+          state: directory
+        
+      - name: Changing Docker to systemd driver
+        copy:
+          dest: /etc/docker/daemon.json
+          content: |
+              {
+              "exec-opts": ["native.cgroupdriver=systemd"]
+              }
+        
+      - name: Install Docker
+        apt:
+          name: docker.io
+          state: present
+          update_cache: true
+    become: true
+
+  - name: Installing all other dependencies
+    block:
+      - name: install APT Transport HTTPS
+        apt:
+          name: apt-transport-https
+          state: present
+
+      - name: add Kubernetes apt-key
+        apt_key:
+          url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+          state: present
+
+      - name: add Kubernetes' APT repository
+        apt_repository:
+          repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+          state: present
+          filename: 'kubernetes'
+
+      - name: install kubelet
+        apt:
+          name: kubelet
+          state: present
+          update_cache: true
+
+      - name: install kubeadm
+        apt:
+          name: kubeadm
+          state: present
+    become: true
+
+  - name: Install control plane
+    become: yes
+    apt:
+      name: kubectl
+      state: present
+      force: yes
+    when: role == master
+    
+

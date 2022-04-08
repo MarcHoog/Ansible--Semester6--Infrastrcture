@@ -1,6 +1,1 @@
 ---
-# handlers file for python_webhook
-  - name: restart sshd
-    service:
-      name: sshd
-      state: restarted

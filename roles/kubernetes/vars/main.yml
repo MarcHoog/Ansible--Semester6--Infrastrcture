@@ -1,2 +1,3 @@
 ---
-# vars file for kubernetes
+# vars file for kubernetes 
+role: "worker"
