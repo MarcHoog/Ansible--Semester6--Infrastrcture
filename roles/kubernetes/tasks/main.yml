@@ -54,7 +54,7 @@
     become: true
 
   - name: Configuring and installing master
-    block: 
+    block:
       - name: Install control plane
         become: yes
         apt:
@@ -90,6 +90,7 @@
         args:
           chdir: $HOME
           creates: pod_network_setup.txt
-    
+          
+    become: true 
     when: role == "master"
 
