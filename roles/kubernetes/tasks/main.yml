@@ -59,6 +59,6 @@
       name: kubectl
       state: present
       force: yes
-    when: role == master
+    when: role == "master"
     
 
