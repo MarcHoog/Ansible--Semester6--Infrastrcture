@@ -6,8 +6,8 @@
     - name: include kubernetes role with worker var
       include_role:
         name: kubernetes
-        vars:
-          role: worker
+      vars:
+        role: worker
 
 - name: install kubernetes masters
   hosts: kubernetes-masters
@@ -16,5 +16,5 @@
     - name: include kubernetes role with master var
       include_role:
         name: kubernetes
-        vars:
-          role: master
+      vars:
+        role: master
