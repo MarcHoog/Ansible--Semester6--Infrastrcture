@@ -22,7 +22,7 @@
       become: true
       ansible.builtin.file:
         path: /etc/sysctl.d/kubernetes.conf
-        state: present
+        state: file
 
     - name: Ensure sysctl params are set
       become: True
