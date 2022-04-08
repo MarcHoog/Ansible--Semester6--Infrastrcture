@@ -18,6 +18,12 @@
         name: br_netfilter
         state: present
     
+    - name: Ensure kubernetes.conf is set
+      become: true
+      ansible.builtin.file:
+        path: /etc/sysctl.d/kubernetes.conf
+        state: present
+
     - name: Ensure sysctl params are set
       become: True
       ansible.builtin.blockinfile:
