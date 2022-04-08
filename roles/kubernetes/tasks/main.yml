@@ -1,29 +1,9 @@
 ---
+  - name: import tasks
+    import_tasks:
+      name: containerd
 
-  #! We are also gonna look at other options then just docker but this one seems the easier of the two
-  - name: installs docker as the container runtime 
-    block:
-      - name: Create Docker config directory
-        file:
-          path: "/etc/docker"
-          state: directory
-        
-      - name: Changing Docker to systemd driver
-        copy:
-          dest: /etc/docker/daemon.json
-          content: |
-              {
-              "exec-opts": ["native.cgroupdriver=systemd"]
-              }
-        
-      - name: Install Docker
-        apt:
-          name: docker.io
-          state: present
-          update_cache: true
-    become: true
-
-  - name: Installing all other dependencies
+  - name: Installing dependencies
     block:
       - name: install APT Transport HTTPS
         apt:
@@ -53,43 +33,7 @@
           state: present
     become: true
 
-  - name: Configuring and installing master
-    block:
-      - name: Install control plane
-        become: yes
-        apt:
-          name: kubectl
-          state: present
-          force: yes
-  
-      - name: initialize the cluster
-        shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> cluster_initialized.txt
-        args:
-          chdir: $HOME
-          creates: cluster_initialized.txt
-
-      - name: create .kube directory
-        become: yes
-        become_user: ansible-op
-        file:
-          path: $HOME/.kube
-          state: directory
-          mode: 0755
-
-      - name: copy admin.conf to user's kube config
-        copy:
-          src: /etc/kubernetes/admin.conf
-          dest: /home/ansible-op/.kube/config
-          remote_src: yes
-          owner: ansible-op
-
-      - name: install Pod network
-        become: yes
-        become_user: ansible-op
-        shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml >> pod_network_setup.txt
-        args:
-          chdir: $HOME
-          creates: pod_network_setup.txt
-          
-    become: true 
-    when: role == "master"
+  - name: import tasks
+    import_tasks:
+      name: control_node
+    when: role == "controller"
