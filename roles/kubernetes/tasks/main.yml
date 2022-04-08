@@ -1,6 +1,6 @@
 ---
   - name: import tasks
-    include_tasks: containerd
+    import_tasks: "{{ role_path }}/tasks/containerd"
 
   - name: Installing dependencies
     block:
@@ -33,5 +33,5 @@
     become: true
 
   - name: import tasks
-    include_task: control_node
+    import_task: "{{ role_path }}/tasks/control_node"
     when: role == "controller"
