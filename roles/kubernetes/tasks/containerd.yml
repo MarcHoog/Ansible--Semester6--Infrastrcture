@@ -94,7 +94,7 @@
 
     - name: start and enable containerd
       ansible.builtin.systemd:
-        state: started
+        state: restarted
         enabled: yes
         name: containerd
     
