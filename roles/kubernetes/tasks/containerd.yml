@@ -78,13 +78,19 @@
       command: containerd config default>/etc/containerd/config.toml
       when: containerd_folder.changed
 
-    - name: use the systemd cgroup driver
-      lineinfile:
-        path: /etc/containerd/config.toml
-        regexp: '^plugins.cri.systemd_cgroup'
-        line: "plugins.cri.systemd_cgroup = true"
-        state: present
-        backup: true
+    - name: make containerd use systemd group driver
+      ansible.builtin.copy:
+        dest: "etc/containerd/config.toml"
+        content: "plugins.cri.systemd_cgroup = true"
+
+#! Gotta change this to overwrite the file
+#    - name: use the systemd cgroup driver
+#      lineinfile:
+#       path: /etc/containerd/config.toml
+#        regexp: '^plugins.cri.systemd_cgroup'
+#        line: "plugins.cri.systemd_cgroup = true"
+#        state: present
+#        backup: true
 
     - name: start and enable containerd
       ansible.builtin.systemd:
