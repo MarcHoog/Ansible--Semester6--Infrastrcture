@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../Teraform"
+		},
+		{
+			"path": "../Kubernetes"
 		}
 	],
 	"settings": {}

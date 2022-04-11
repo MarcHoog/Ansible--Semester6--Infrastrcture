@@ -1,6 +1,6 @@
 ---
   - hosts: kubernetes-masters
-    become: yes
+    become: true
     gather_facts: false
     tasks:
       - name: get join command
@@ -13,7 +13,7 @@
 
 
   - hosts: kubernetes-workers
-    become: yes
+    become: true
     tasks:
       - name: join cluster
         shell: "{{ hostvars['kube-master00'].join_command }} >> node_joined.txt"
