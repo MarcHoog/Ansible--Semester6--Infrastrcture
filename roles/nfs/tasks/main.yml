@@ -4,3 +4,8 @@
 # sudo apt update
 # sudo apt install nfs-kernel-server
 
+#sudo mkdir -p /srv/nfs4/
+
+#sudo mount --bind /var/www /srv/nfs4/www
+
+#sudo nano /etc/fstab
