@@ -7,12 +7,14 @@
           name: kubectl
           state: present
           force: yes
+        register: control_plane
   
       - name: initialize the cluster
         shell: kubeadm init --pod-network-cidr=10.244.0.0/16
         args:
           chdir: $HOME
           creates: cluster_initialized.txt
+        when: control_plane.changed
 
       - name: create .kube directory
         become: true
@@ -36,5 +38,6 @@
         args:
           chdir: $HOME
           creates: pod_network_setup.txt
+        when: control_plane.changed§
           
     become: true 
