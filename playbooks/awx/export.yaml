@@ -11,5 +11,5 @@
     register: out
 
   - name: debug awx configuration
-    debug: out
+    debug: var=mosh_version.stdout
       
