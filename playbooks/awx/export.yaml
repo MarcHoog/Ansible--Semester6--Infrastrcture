@@ -6,6 +6,9 @@
   tasks:
   - name: export 
     awx.awx.tower_export:
+      validate_certs: no
+      tower_username: admin
+      tower_password: jnVIQf5Lj7ihtNAFLvvarWsDxgeKECVt
       all: true
     register: out
 
