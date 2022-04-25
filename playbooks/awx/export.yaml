@@ -10,9 +10,11 @@
       tower_username: admin
       tower_password: jnVIQf5Lj7ihtNAFLvvarWsDxgeKECVt
       all: true
-    register: out
+    register: template_assets
 
   - name: debug awx configuration
     debug: 
-      var: out
-      verbosity: 3      
+      var: template_assets
+      verbosity: 3
+  
+  - copy: content="{{ template_assests }}" dest=/tmp/test
