@@ -7,8 +7,8 @@
     awx.awx.tower_export:
       controller_host: http://10.8.0.1:30080/
       validate_certs: no
-      tower_username: admin
-      tower_password: jnVIQf5Lj7ihtNAFLvvarWsDxgeKECVt
+      tower_username: "{{ tower_username }}"
+      tower_password: "{{ tower_password }}"
       all: true
     register: template_assets
 
