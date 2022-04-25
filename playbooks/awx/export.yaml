@@ -17,4 +17,4 @@
       var: template_assets
       verbosity: 3
   
-  - copy: content="{{ template_assests }}" dest=/tmp/test
+  - copy: content="{{ template_assets }}" dest=/tmp/test
