@@ -6,7 +6,7 @@
   tasks:
   - name: export 
     awx.awx.tower_export:
-      controller_host: 127.0.0.1:30080
+      controller_host: http://10.8.0.1:30080/
       validate_certs: no
       tower_username: admin
       tower_password: jnVIQf5Lj7ihtNAFLvvarWsDxgeKECVt
