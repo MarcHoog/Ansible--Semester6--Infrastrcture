@@ -1,7 +1,6 @@
 ---
 - name: export awx configuration
   hosts: localhost
-  debugger: on_failed
   gather_facts: false
   tasks:
   - name: export 
