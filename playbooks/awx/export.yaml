@@ -5,8 +5,8 @@
   tasks:
   - name: export 
     awx.awx.tower_export:
-      controller_host: http://10.8.0.1:30080/
-      validate_certs: no
+      controller_host: "{{ controller_host }}"
+      validate_certs: "{{ validate_certs }}"
       tower_username: "{{ tower_username }}"
       tower_password: "{{ tower_password }}"
       all: true

@@ -1,0 +1,15 @@
+---
+# tasks file for foo
+- name: Install nfs-kernel-server
+  ansible.builtin.apt:
+    name: nfs-kernel-server
+    state: present
+    update_cache: true
+
+- name: create nfs4 folder
+
+#sudo mkdir -p /srv/nfs4/
+
+#sudo mount --bind /var/www /srv/nfs4/www
+
+#sudo nano /etc/fstab
