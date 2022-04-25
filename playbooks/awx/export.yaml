@@ -1,0 +1,15 @@
+---
+- name: export awx configuration
+  hosts: localhosts
+  debugger: on_failed
+  gather_facts: false
+  become: true
+  tasks:
+  - name: export 
+    awx.awx.tower_export:
+      all: true
+    register: out
+
+  - name: debug awx configuration
+    debug: out
+      
