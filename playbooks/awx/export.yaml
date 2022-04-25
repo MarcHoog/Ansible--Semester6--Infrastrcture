@@ -17,4 +17,4 @@
       var: template_assets
       verbosity: 3
   
-  - copy: content="{{ template_assests | to_nice_json }}" dest=/tmp/test
+  - copy: content="{{ template_assets | to_nice_json }}" dest=/tmp/test
