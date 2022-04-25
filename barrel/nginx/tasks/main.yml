@@ -1,0 +1,45 @@
+# e.g. Ubuntu 20.04 (Focal Fossa):
+#
+#
+#
+#
+#
+
+---
+  - name: cleanup of apt
+    ansible.builtin.apt:
+      autoclean: yes
+      autoremove: yes
+    become: true
+#  tags: apt
+
+  - name: install nginx
+    ansible.builtin.apt:
+      name: nginx
+      state: latest
+      update_cache: yes
+    become: true
+#    tags: apt
+
+  - name: Ensures nginx_conf_path exsists
+    file:
+      path: "{{ nginx_conf_path }}"
+
+
+  #! - name deploy default configuration 
+
+
+  #! - name remove default configuration
+
+
+  #! - name base default configuration
+
+
+  #! - Deploy managed configuration
+
+  
+  #! - Remove managed configuration
+
+
+  - name: Ensure nginx is started and enabled to start at boot
+    service: name=nginx state=started

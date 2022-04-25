@@ -1,0 +1,20 @@
+---
+- name: install kubernetes
+  hosts: kubernetes-workers
+  tasks:
+
+    - name: include kubernetes role with worker var
+      include_role:
+        name: kubernetes
+      vars:
+        role: worker
+
+- name: install kubernetes masters
+  hosts: kubernetes-masters
+  tasks:
+
+    - name: include kubernetes role with master var
+      include_role:
+        name: kubernetes
+      vars:
+        role: "controller"

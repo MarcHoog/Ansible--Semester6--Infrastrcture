@@ -1,0 +1,20 @@
+#export PM_API_TOKEN_ID=
+#export PM_API_TOKEN_SCRET
+
+---
+- hosts: terraform
+  vars_prompt:
+
+    - name: api_token_id
+      prompt: what is the terraform api token id for proxmox connection
+      private: true
+
+    - name: api_token_secret
+      prompt: What is terraform api token secret for proxmox connection
+      private: true
+
+#  tasks:
+#    - name: set enviorment
+#      enviorment:
+#        PM_API_TOKEN_ID: "{{ api_token_id }}"
+#        PM_API_TOKEN_SCRET: "{{ api_token_secret }}"

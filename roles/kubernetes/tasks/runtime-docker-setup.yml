@@ -1,0 +1,23 @@
+---  
+- name: setup docker as the kubernetes container runtime
+  block:
+    - name: Create Docker config directory
+      ansible.builtin.file:
+        path: "/etc/docker"
+        state: directory
+      
+    - name: Changing Docker to systemd driver
+      ansible.builtin.copy:
+        dest: /etc/docker/daemon.json
+        marker: "# <!--{mark} ansible managed block ---!> #"
+        content: |
+            {
+            "exec-opts": ["native.cgroupdriver=systemd"]
+            }
+      
+    - name: Install Docker
+      ansible.builtin.apt:
+        name: docker.io
+        state: present
+        update_cache: true
+  become: true

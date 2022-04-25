@@ -1,0 +1,25 @@
+---
+#! tasks file for terraform role
+  - name: aptitude tasks
+    become: true
+    block:
+
+    - name: add hashicorp key
+      become: true
+      ansible.builtin.apt_key:
+        url: "{{ hashicorp_key }}"
+        state: present
+
+    - name: add hashicorp repository
+      become: true
+      ansible.builtin.apt_repository:
+        repo: "{{ repository_path }}"
+        state: present
+
+    - name: installing terraform
+      become: true
+      ansible.builtin.apt: 
+        name: terraform
+        state: latest
+        update_cache: true
+

@@ -1,0 +1,11 @@
+---
+- include_tasks: runetime-containerd-setup.yml
+  when: runetime == "containerd"
+
+- include_tasks: runtime-docker-setup.yml
+  when: runtime == "docker"
+
+- include_tasks: node-base-setup.yml
+
+- include_tasks: control_node.yml
+  when: role == "controller"

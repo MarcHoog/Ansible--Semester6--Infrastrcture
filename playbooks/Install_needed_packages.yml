@@ -1,9 +1,0 @@
-# Ansible playbook to instal needed packages
-# ! this Playbook is only viable for debian and rehl based systems.
----
-- hosts: localhost
-  tasks:
-    - name: APT installing git
-      apt:
-
-    
