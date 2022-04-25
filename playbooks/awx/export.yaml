@@ -11,5 +11,6 @@
     register: out
 
   - name: debug awx configuration
-    debug: out.assets
-      
+    debug: 
+      var: out
+      verbosity: 3      
