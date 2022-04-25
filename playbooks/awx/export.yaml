@@ -3,7 +3,6 @@
   hosts: localhost
   debugger: on_failed
   gather_facts: false
-  become: true
   tasks:
   - name: export 
     awx.awx.tower_export:
