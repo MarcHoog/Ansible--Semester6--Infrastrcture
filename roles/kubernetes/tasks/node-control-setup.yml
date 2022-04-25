@@ -1,0 +1,7 @@
+---
+- name: Install control-plane for control (master) kubernetes node
+  become: true
+  apt:
+    name: kubectl
+    state: present
+    force: yes

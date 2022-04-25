@@ -1,30 +1,30 @@
 ---
-- name: containerd.yml
+- name: setup containerd as the kubernetes container runtime
   block:
     - name: Configure persistent loading of modules
-      copy:
+      ansible.builtin.copy:
         dest: "/etc/modules-load.d/containerd.conf"
         content: |
           overlay
           br_netfilter
     
-    - name: Add the overlay module
+    - name: Add the overlay module with modprobe
       community.general.modprobe:
         name: overlay
         state: present
 
-    - name: Add the br_netfilter module
+    - name: Add the br_netfilter module with modprobe
       community.general.modprobe:
         name: br_netfilter
         state: present
     
-    - name: Ensure kubernetes.conf is set
+    - name: Ensure kubernetes.conf is created
       become: true
       ansible.builtin.file:
         path: /etc/sysctl.d/kubernetes.conf
         state: touch
 
-    - name: Ensure sysctl params are set
+    - name: Ensure sysctl paramaters within sysctl kubernetes.conf are set
       become: True
       ansible.builtin.blockinfile:
         path: /etc/sysctl.d/kubernetes.conf
@@ -35,16 +35,16 @@
           net.ipv4.ip_forward = 1
       register: sysctl_params
 
-    - name: Reload configs
-      command: sudo sysctl --system
+    - name: Reload sysctl 
+      ansible.builtin.command: sudo sysctl --system
       when: sysctl_params.changed 
 
-    - name: Apt update before installing packages
-      apt:
+    - name: Update aptitude cache
+      ansible.builtin.apt:
         update_cache: true
 
     - name: Install required package
-      apt: 
+      ansible.builtin.apt: 
         name: "{{ item }}"
         state: present
       loop: "{{ contained_dependencys }}"
@@ -61,39 +61,31 @@
         repo: "{{ docker_repository_path }}"
         state: present
 
-    - name: apt install containerd
+    - name: Install containerd
       become: true
-      apt:
+      ansible.builtin.apt:
         name: containerd.io
         state: present
         update_cache: true
 
-    - name: make containerd folder
+    - name: Create the default containerd folder
       ansible.builtin.file:
         path: /etc/containerd
         state: directory
       register: containerd_folder
 
-    - name: default containerd folder
-      command: containerd config default>/etc/containerd/config.toml
+    - name: Set containerd folder as default 
+      ansible.builtin.command: containerd config default>/etc/containerd/config.toml
       when: containerd_folder.changed
 
-    - name: make containerd use systemd group driver
+    - name: Make containerd use systemd group driver
       ansible.builtin.copy:
         dest: "/etc/containerd/config.toml"
+        marker: "# <!--{mark} ansible managed block ---!> #"
         content: |
           [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
               SystemdCgroup = true
-
-#! Gotta change this to overwrite the file
-#    - name: use the systemd cgroup driver
-#      lineinfile:
-#       path: /etc/containerd/config.toml
-#        regexp: '^plugins.cri.systemd_cgroup'
-#        line: "plugins.cri.systemd_cgroup = true"
-#        state: present
-#        backup: true
-
+              
     - name: start and enable containerd
       ansible.builtin.systemd:
         state: restarted

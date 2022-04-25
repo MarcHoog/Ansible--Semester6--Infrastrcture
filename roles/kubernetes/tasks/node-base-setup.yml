@@ -1,0 +1,36 @@
+---
+- name: Install dependencies for default (worker) kubernetes node
+  block:
+    - name: Install apt-transport-https
+      ansible.builtin.apt:
+        name: apt-transport-https
+        state: present
+
+    - name: Install nfs-common for accesing persistent volumes on nfs share
+      ansible.builtin.apt:
+        name: nfs-common
+        state: present
+
+    - name: Add kubernetes repostory key
+      ansible.builtin.apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+
+    - name: Add Kubernetes repository 
+      ansible.builtin.apt_repository:
+        repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+        state: present
+        filename: 'kubernetes'
+
+    - name: Install kubelet
+      ansible.builtin.apt:
+        name: kubelet
+        state: present
+        update_cache: true
+
+    - name: Install kubeadm
+      ansible.builtin.apt:
+        name: kubeadm
+        state: present
+  become: true
+
