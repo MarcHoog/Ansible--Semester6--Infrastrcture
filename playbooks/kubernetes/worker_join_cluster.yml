@@ -13,6 +13,7 @@
 
 
   - hosts: kubernetes-workers
+    # ADD CHECK IF NODE ALREADY IN CLUSTER
     become: true
     tasks:
       - name: join cluster
