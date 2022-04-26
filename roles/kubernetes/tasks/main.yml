@@ -1,6 +1,6 @@
 ---
 - include_tasks: runetime-containerd-setup.yml
-  when: runetime == "containerd"
+  when: runtime == "containerd"
 
 - include_tasks: runtime-docker-setup.yml
   when: runtime == "docker"
