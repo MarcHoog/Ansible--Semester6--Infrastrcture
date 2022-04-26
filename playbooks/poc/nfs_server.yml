@@ -9,4 +9,4 @@
       vars:
         nfs_exports:
           - /srv/nfs4                *(rw,sync,no_subtree_check,crossmnt,fsid=0)
-          - /srv/nfs4/kubernetes     *(rw,sync,no_subtree_check
+          - /srv/nfs4/kubernetes     *(rw,sync,no_subtree_check)
