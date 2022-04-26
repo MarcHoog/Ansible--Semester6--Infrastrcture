@@ -1,26 +1,30 @@
 ---
-- name: Install nfs-kernel-server
-  ansible.builtin.apt:
-    name: 
-      - nfs-kernel-server
-      - nfs-common
-    state: present
-    update_cache: true
-    
-- name: Ensure directories to export exist
-  file:
-    path: "{{ item.strip().split()[0] }}"
-    state: directory
-    mode: 755
-    group: nogroup
-    owner: nobody
-  with_items: "{{ nfs_exports }}"
+- name: Setting up NFS server
+  block:
+  - name: Installing Packages
+    ansible.builtin.apt:
+      name: 
+        - nfs-kernel-server
+        - nfs-common
+      state: present
+      update_cache: true
+      
+  - name: Ensure directories to export exist
+    file:
+      path: "{{ item.strip().split()[0] }}"
+      state: directory
+      mode: 755
+      group: nogroup
+      owner: nobody
+    with_items: "{{ nfs_exports }}"
 
-- name: Copy exports file.
-  template:
-    src: exports.j2
-    dest: /etc/exports
-    owner: root
-    group: root
-    mode: 0644
-  notify: reload nfs
+  - name: Copy exports file.
+    template:
+      src: exports.j2
+      dest: /etc/exports
+      owner: root
+      group: root
+      mode: 0644
+    notify: reload nfs
+  
+  become: true
