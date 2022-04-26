@@ -4,11 +4,11 @@
   hosts: all
   tags: everyone
   tasks:
-    - name: 'include ansible operator on all machines'
+    - name: 'include ansible operator on all operational machines'
       include_role:
-        - name: ansible
+        name: ansible
 
-    - name: 'include ansible operator on all machines'
+    - name: 'include qemuguest on all operational machines'
       include_role:
-        - name: qemuguest
+        name: qemuguest
     
