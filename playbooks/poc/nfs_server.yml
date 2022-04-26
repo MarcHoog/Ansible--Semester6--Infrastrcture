@@ -1,9 +1,12 @@
 ---
  - hosts: kube-nfs-test
    name: make a test nfs server
-   roles:
-      - role: nfs-server
-        vars:
-          nfs_exports:
-            - /srv/nfs4                *(rw,sync,no_subtree_check,crossmnt,fsid=0)
-            - /srv/nfs4/kubernetes     *(rw,sync,no_subtree_check)
+   tasks:
+    
+    - name: include role nfs server
+      include_role: 
+        - name: nfs-server
+          vars:
+            nfs_exports:
+              - /srv/nfs4                *(rw,sync,no_subtree_check,crossmnt,fsid=0)
+              - /srv/nfs4/kubernetes     *(rw,sync,no_subtree_check
