@@ -4,7 +4,6 @@
   args:
     chdir: $HOME
     creates: cluster_initialized.txt
-  when: control_plane.changed
 
 - name: create .kube directory
   become: true
@@ -28,4 +27,3 @@
   args:
     chdir: $HOME
     creates: pod_network_setup.txt
-  when: control_plane.changed
