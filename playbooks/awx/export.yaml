@@ -1,22 +1,55 @@
 ---
 - name: export awx configuration
-  hosts: localhost
+  hosts: ansible
   gather_facts: false
-  tasks:
-  - name: export 
-    awx.awx.tower_export:
-      controller_host: "{{ controller_host }}"
-      validate_certs: "{{ validate_certs }}"
-      tower_username: "{{ tower_username }}"
-      tower_password: "{{ tower_password }}"
-      all: true
-    register: template_assets
+  vars:
+    repository_path: "git@github.com:MarcHoog/Ansible.git"
+    path: /home/ansible-op/awx
+    branch: "main"
 
-  - name: debug awx configuration
-    debug: 
-      var: template_assets
-      verbosity: 3
+
+  tasks:
+    
+    - name: Ensure awx repository path
+      file:
+        path: "{{ path }}"
+        state: directory
+        mode: 755
+        group: ansible-op
+        owner: ansible-op
+
+    - name: capture unused branches
+      ansible.builtin.find:
+        paths: "{{ path }}"
+        file_type: directory
+        exclude: "{{ branch }}"
+      register: found_files
+
+    - name: remove unused branches
+      ansible.builtin.file:
+        path: "{{ item.path }}"
+        state: absent
+      with_items: "{{ found_files['files'] }}"
+
+    - name: clone / update ansible repository and branches
+      ansible.builtin.git:
+        repo: "{{ repository_path }}" 
+        dest: "{{ path }}/{{ branch }}"
+        version: "{{ branch }}"
+        clone: true
+        force: yes  
+        update: true
+      ignore_errors: true
+
+    - name: export  awx configuration
+      awx.awx.tower_export:
+        controller_host: "{{ controller_host }}"
+        validate_certs: "{{ validate_certs }}"
+        tower_username: "{{ tower_username }}"
+        tower_password: "{{ tower_password }}"
+        all: true
+      register: template_assets
   
-  - copy: 
-      content: "{{ template_assets | to_nice_json }}" 
-      dest: /tmp/test
+    - copy: 
+        content: "{{ template_assets | to_nice_json }}" 
+        dest: "{{ path }}/{{ branch }}"

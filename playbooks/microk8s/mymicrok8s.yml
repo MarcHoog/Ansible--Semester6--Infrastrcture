@@ -1,0 +1,23 @@
+---
+name: Installing my Micrkok8s Environment on a Ubuntu Machine 
+hosts: microk8s
+tasks:
+
+  - name: Snap install microk8s
+    comunity.general.snap:
+      name: microk8s
+      classic: true
+      state: present
+
+  - name: add ansible-op to microk8s
+    # sudo usermod -a -G micrko8s ansible-op
+
+    register: add_user_to_group
+
+  - name: reboot
+    reboot: 
+    when: add_user_to_group.changed
+
+
+  - name: Enable dashboard
+    commmand: "microk8s enable dashboard dns registry storage"
