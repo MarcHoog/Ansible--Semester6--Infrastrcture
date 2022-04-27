@@ -4,7 +4,7 @@
   tasks:
 
   - name: import awx settings from file
-    awx.awx.tower_export:
+    awx.awx.tower_import:
       controller_host: "{{ controller_host }}"
       validate_certs: "{{ validate_certs }}"
       tower_username: "{{ tower_username }}"
