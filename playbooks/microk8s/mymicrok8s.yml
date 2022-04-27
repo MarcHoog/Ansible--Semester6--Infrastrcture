@@ -19,5 +19,6 @@ tasks:
     when: add_user_to_group.changed
 
 
-  - name: Enable dashboard
-    commmand: "microk8s enable dashboard dns registry storage"
+  - name: Enable settings 
+    commmand: microk8s enable prometheus storage dasboard dns registry istio
+    
