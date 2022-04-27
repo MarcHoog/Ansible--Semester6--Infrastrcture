@@ -1,0 +1,21 @@
+- name: export awx file
+  hosts: ansible
+  tasks:
+
+  - name: export  awx configuration
+    awx.awx.tower_export:
+      controller_host: "http://10.8.0.1:30080/"
+      validate_certs: "false"
+      tower_username: "admin"
+      tower_password: "jnVIQf5Lj7ihtNAFLvvarWsDxgeKECVt"
+      all: true
+    register: template_assets
+
+  - name: import awx settings from file
+    awx.awx.tower_import:
+      controller_host: "http://10.0.0.2:30080/"
+      validate_certs: "false"
+      tower_username: "admin"
+      tower_password: "2ncXHfKFcE5QDOgWqz2svfRaJH9NRhj9"
+      assests: "{{ template_assets }}"
+  
