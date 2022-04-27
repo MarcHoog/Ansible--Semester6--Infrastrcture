@@ -17,5 +17,5 @@
       validate_certs: "false"
       tower_username: "admin"
       tower_password: "2ncXHfKFcE5QDOgWqz2svfRaJH9NRhj9"
-      assets : "{{ template_assets }}"
+      assets : "{{ template_assets.assets }}"
   
