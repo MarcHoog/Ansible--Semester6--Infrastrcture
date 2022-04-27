@@ -9,5 +9,5 @@
       validate_certs: "{{ validate_certs }}"
       tower_username: "{{ tower_username }}"
       tower_password: "{{ tower_password }}"
-      assets: "/tmp/export" 
+      assets: "{{ lookup('file', '/tmp/export') | from_json() }}"
     
