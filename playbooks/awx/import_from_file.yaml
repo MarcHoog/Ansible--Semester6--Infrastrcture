@@ -1,20 +1,13 @@
 ---
-- name: export awx file
+- name: import awx settings from file
   hosts: ansible
   tasks:
 
-  - name: export  awx configuration
+  - name: import awx settings from file
     awx.awx.tower_export:
       controller_host: "{{ controller_host }}"
       validate_certs: "{{ validate_certs }}"
       tower_username: "{{ tower_username }}"
       tower_password: "{{ tower_password }}"
-      all: true
-    register: template_assets
-  
-  - copy: 
-      content: "{{ template_assets | to_nice_json }}" 
-      dest: "/tmp/export"
-
-
-
+      assets: "/tmp/export" 
+    
