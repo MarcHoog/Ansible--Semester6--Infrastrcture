@@ -14,7 +14,7 @@
         state: present
 
     - name: Add the br_netfilter module with modprobe
-      Community.General.modprobe:
+      community.general.modprobe:
         name: br_netfilter
         state: present
     
