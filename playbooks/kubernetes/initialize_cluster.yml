@@ -10,7 +10,7 @@
 
     - name: initialize the cluster
       become: true
-      shell: kubeadm init --pod-network-cidr=10.244.0.0/16
+      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> /home/ansible-op/.ansible/cluster_initialized.txt
       args:
         chdir: $HOME
         creates: /home/ansible-op/.ansible/cluster_initialized.txt
