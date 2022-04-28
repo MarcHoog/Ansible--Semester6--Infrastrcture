@@ -36,9 +36,9 @@
       register: sysctl_params
 
     - name: Reload sysctl 
-      ansible.builtin.shell:
+      command:
         cmd: sysctl --system
-#      when: sysctl_params.changed 
+      when: sysctl_params.changed 
 
     - name: Update aptitude cache
       ansible.builtin.apt:
@@ -76,7 +76,7 @@
       register: containerd_folder
 
     - name: Set containerd folder as default 
-      ansible.builtin.shell: 
+      command: 
         cmd: containerd config default>/etc/containerd/config.toml
       when: containerd_folder.changed
 
