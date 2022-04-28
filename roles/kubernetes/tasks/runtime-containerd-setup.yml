@@ -36,7 +36,7 @@
       register: sysctl_params
 
     - name: Reload sysctl 
-      ansible.builtin.command: 
+      ansible.builtin.command:
         cmd: sudo sysctl --system
       when: sysctl_params.changed 
 
