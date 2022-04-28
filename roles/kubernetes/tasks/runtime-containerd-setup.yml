@@ -88,7 +88,6 @@
       ansible.builtin.copy:
         dest: "/etc/containerd/config.toml"
         content: |
-          "# <!--{mark} ansible managed block ---!> #"
           [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
               SystemdCgroup = true
               
