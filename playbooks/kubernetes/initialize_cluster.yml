@@ -1,32 +1,32 @@
 ---
-name: initializing the cluster on the master node
-hosts: kube-master00
-tasks: 
+- name: initializing the cluster on the master node
+  hosts: kube-master00
+  tasks: 
 
-  - name: store the statistics of /.ansible/cluster_initialized.txt in the 'out' variable
-    stat:
-      path: /home/ansible-op/.ansible/cluster_initialized.txt
-    register: cluster_initialized
+    - name: store the statistics of /.ansible/cluster_initialized.txt in the 'out' variable
+      stat:
+        path: /home/ansible-op/.ansible/cluster_initialized.txt
+      register: cluster_initialized
 
-  - name: initialize the cluster
-    shell: kubeadm init --pod-network-cidr=10.244.0.0/16
-    args:
-      chdir: $HOME
-      creates: /home/ansible-op/.ansible/cluster_initialized.txt
-    when: cluster_initialzed.stat.exists is false
+    - name: initialize the cluster
+      shell: kubeadm init --pod-network-cidr=10.244.0.0/16
+      args:
+        chdir: $HOME
+        creates: /home/ansible-op/.ansible/cluster_initialized.txt
+      when: cluster_initialzed.stat.exists is false
 
-  - name: create .kube directory
-    become: true
-    become_user: ansible-op
-    file:
-      path: $HOME/.kube
-      state: directory
-      mode: 0755
+    - name: create .kube directory
+      become: true
+      become_user: ansible-op
+      file:
+        path: $HOME/.kube
+        state: directory
+        mode: 0755
 
-  - name: copy admin.conf to user's kube config
-    copy:
-      src: /etc/kubernetes/admin.conf
-      dest: /home/ansible-op/.kube/config
-      remote_src: yes
-      owner: ansible-op
+    - name: copy admin.conf to user's kube config
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: /home/ansible-op/.kube/config
+        remote_src: yes
+        owner: ansible-op
 
