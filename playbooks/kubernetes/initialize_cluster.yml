@@ -9,6 +9,7 @@
       register: cluster_initialized
 
     - name: initialize the cluster
+      become: true
       shell: kubeadm init --pod-network-cidr=10.244.0.0/16
       args:
         chdir: $HOME
