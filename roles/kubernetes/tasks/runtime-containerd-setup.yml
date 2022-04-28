@@ -83,8 +83,8 @@
     - name: Make containerd use systemd group driver
       ansible.builtin.copy:
         dest: "/etc/containerd/config.toml"
-        marker: "# <!--{mark} ansible managed block ---!> #"
         content: |
+          "# <!--{mark} ansible managed block ---!> #"
           [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
               SystemdCgroup = true
               
