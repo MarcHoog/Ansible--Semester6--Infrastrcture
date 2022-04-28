@@ -13,22 +13,10 @@
         dest:  "/etc/sudoers.d/{{ ansible_operator }}"
         content:  "{{ ansible_operator }}  ALL=(ALL)  NOPASSWD: ALL"
 
-
-
-    - name: Deploy SSH Key to remote Machine from AWX
-      authorized_key:  user={{ ansible_operator }}
-                       key="{{ awx_public_key }}"
-                       state=present
-      when: awx_public_key | length > 0
-
     - name: Deploy SSH Key to remote Machine
       authorized_key:  user={{ ansible_operator }}
                        key="{{ ansible_public_key }}"
                        state=present
-      when: awx_public_key | length == 0
-
-
-
 
     - name: Disable Password Authentication for all users
       become: true
