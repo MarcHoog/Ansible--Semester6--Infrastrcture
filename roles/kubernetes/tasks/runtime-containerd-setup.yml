@@ -76,7 +76,7 @@
       register: containerd_folder
 
     - name: Set containerd folder as default 
-      ansible.builtin.command: 
+      ansible.builtin.shell: 
         cmd: containerd config default>/etc/containerd/config.toml
       when: containerd_folder.changed
 
