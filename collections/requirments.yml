@@ -1,5 +1,0 @@
-collection:
-
-- name: community.general
-  version: 4.8.0
-  source: https://galaxy.ansible.com
