@@ -16,3 +16,4 @@
       chdir: $HOME
       creates: ~/.ansible/pod_netwerk_setup.txt
     when: pod_netwerk_setup.stat.exists == false
+    
