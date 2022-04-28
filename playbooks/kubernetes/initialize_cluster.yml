@@ -13,7 +13,7 @@
       args:
         chdir: $HOME
         creates: /home/ansible-op/.ansible/cluster_initialized.txt
-      when: cluster_initialzed.stat.exists is false
+      when: cluster_initialzed.stat.exists == false
 
     - name: create .kube directory
       become: true
