@@ -5,7 +5,7 @@
 
   - name: store the statistics of /.ansible/pod_netwerk_setup.txt in the 'out' variable
     stat:
-      path: /home/ansible-op/.ansible/pod_netwerk_setup.txt 
+      path: /home/ansible-op/.ansible/pod_network_setup.txt 
     register: pod_netwerk_setup
 
   - name: install Pod network
