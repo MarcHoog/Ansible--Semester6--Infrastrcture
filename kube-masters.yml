@@ -1,6 +1,6 @@
 ---
 - name: install kubernetes masters
-  hosts: kubernetes-masters
+  hosts: kubernetes_masters
   tasks:
 
     - name: include kubernetes role with master var

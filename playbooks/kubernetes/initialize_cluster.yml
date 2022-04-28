@@ -3,7 +3,7 @@
   shell: kubeadm init --pod-network-cidr=10.244.0.0/16
   args:
     chdir: $HOME
-    creates: cluster_initialized.txt
+    creates: /home/ansible-op/cluster_initialized.txt
 
 - name: create .kube directory
   become: true

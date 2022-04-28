@@ -1,6 +1,6 @@
 ---
 - name: install kubernetes
-  hosts: kubernetes-workers
+  hosts: kubernetes_workers
   tasks:
 
     - name: include kubernetes role with worker var
