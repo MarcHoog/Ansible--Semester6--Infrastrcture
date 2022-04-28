@@ -1,0 +1,13 @@
+  - name: store the statistics of /.ansible/pod_netwerk_setup.txt in the 'out' variable
+    stat:
+      path: /home/ansible-op/.ansible/cluster_initialized.txt
+    register: pod_netwerk_setup
+
+  - name: install Pod network
+    become: true
+    become_user: ansible-op
+    shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml >> pod_network_setup.txt
+    args:
+      chdir: $HOME
+      creates: /home/ansible-op/.ansible/pod_netwerk_setup.txt
+    when: pod_netwerk_setup.stat.exists is false
