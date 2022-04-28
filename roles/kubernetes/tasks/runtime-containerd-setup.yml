@@ -49,6 +49,10 @@
         name: "{{ item }}"
         state: present
       loop: "{{ contained_dependencys }}"
+      register: apt_status
+      until: apt_status is success
+      delay: 6
+      retries: 10
 
     - name: add docker repository key 
       become: true
