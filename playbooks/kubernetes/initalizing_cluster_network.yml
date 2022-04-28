@@ -1,3 +1,8 @@
+---
+- name: initializing the cluster network
+  hosts: kube-master00
+  tasks: 
+
   - name: store the statistics of /.ansible/pod_netwerk_setup.txt in the 'out' variable
     stat:
       path: /home/ansible-op/.ansible/cluster_initialized.txt 
@@ -10,4 +15,4 @@
     args:
       chdir: $HOME
       creates: ~/.ansible/pod_netwerk_setup.txt
-    when: pod_netwerk_setup.stat.exists is false
+    when: pod_netwerk_setup.stat.exists == false
