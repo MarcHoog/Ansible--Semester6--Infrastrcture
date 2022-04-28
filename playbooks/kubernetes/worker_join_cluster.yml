@@ -19,10 +19,11 @@
       - name: store the statistics of ansible-op/.ansible/node_joined.txt in the 'out' variable
         stat:
           path: /home/ansible-op/.ansible/node_joined.txt 
-        register: pod_netwerk_setup
+        register: node_joined
 
       - name: join cluster
         shell: "{{ hostvars['kube-master00'].join_command }} >> /home/ansible-op/.ansible/node_joined.txt"
         args:
           chdir: $HOME
           creates: node_joined.txt
+        register: node_joined.stat.exists == false
