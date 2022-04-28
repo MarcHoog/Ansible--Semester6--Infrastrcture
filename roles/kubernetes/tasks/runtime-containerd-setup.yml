@@ -9,12 +9,12 @@
           br_netfilter
     
     - name: Add the overlay module with modprobe
-      modprobe:
+      community.general.modprobe:
         name: overlay
         state: present
 
     - name: Add the br_netfilter module with modprobe
-      modprobe:
+      community.general.modprobe:
         name: br_netfilter
         state: present
     
