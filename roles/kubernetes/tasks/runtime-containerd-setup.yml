@@ -37,7 +37,7 @@
 
     - name: Reload sysctl 
       ansible.builtin.command:
-        cmd: sudo sysctl --system
+        cmd: sysctl --system
       when: sysctl_params.changed 
 
     - name: Update aptitude cache
