@@ -76,7 +76,8 @@
       register: containerd_folder
 
     - name: Set containerd folder as default 
-      ansible.builtin.command: containerd config default>/etc/containerd/config.toml
+      ansible.builtin.command: 
+        cmd: containerd config default>/etc/containerd/config.toml
       when: containerd_folder.changed
 
     - name: Make containerd use systemd group driver
