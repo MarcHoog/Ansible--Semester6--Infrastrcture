@@ -26,4 +26,4 @@
         args:
           chdir: $HOME
           creates: node_joined.txt
-        register: node_joined.stat.exists == false
+        when: node_joined.stat.exists == false
