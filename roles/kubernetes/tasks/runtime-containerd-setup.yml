@@ -36,7 +36,8 @@
       register: sysctl_params
 
     - name: Reload sysctl 
-      ansible.builtin.command: sudo sysctl --system
+      ansible.builtin.command: 
+        cmd: sudo sysctl --system
       when: sysctl_params.changed 
 
     - name: Update aptitude cache
