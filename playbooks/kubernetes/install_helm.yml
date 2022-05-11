@@ -11,7 +11,7 @@
 
         - name: apt install dependencies
           ansible.builtin.apt:
-            name: apt-transport-https
+            name: apt-transport-httpsz``
             state: present
 
         - name: Add helm respository
