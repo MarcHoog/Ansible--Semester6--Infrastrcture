@@ -12,9 +12,10 @@
     - name: Install Python pre-requisits
       pip:
         name:
-          - openshift
-          - pyyaml>3.11
-          - kubernetes>=18.20.0 
+        - python >= 3.6
+        - kubernetes >= 12.0.0
+        - PyYAML >= 3.11
+        - jsonpatch
 
     - name:
       become: true
