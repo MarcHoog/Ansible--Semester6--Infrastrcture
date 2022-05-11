@@ -97,7 +97,7 @@
         state: started
         enabled: yes
         name: containerd
-      when: group_driver.ok
+      when: group_driver.succeeded
 
     - name: start and enable containerd
       ansible.builtin.systemd:
