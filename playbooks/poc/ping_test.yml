@@ -2,6 +2,7 @@
 ---
 - hosts: localhost
   name: ping test
+  
   tasks:
     - name: ping
       ping:
