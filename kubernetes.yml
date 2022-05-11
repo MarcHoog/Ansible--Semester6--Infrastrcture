@@ -1,6 +1,6 @@
 ---
 - name: install kubernetes nodes
-  hosts: kubernetes_workerse
+  hosts: kubernetes_workers
   roles:
     - containerd
     - kubernetes/node
