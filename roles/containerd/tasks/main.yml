@@ -43,6 +43,7 @@
     - name: Update aptitude cache
       ansible.builtin.apt:
         update_cache: true
+      changed_when: False
 
     - name: Install required package
       ansible.builtin.apt: 
