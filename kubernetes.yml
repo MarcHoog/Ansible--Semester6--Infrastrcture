@@ -23,6 +23,6 @@
     - containerd
     - kubernetes/node
     - kubernetes/controller
-    - helm
+    - kubernetes/helm
 
 
