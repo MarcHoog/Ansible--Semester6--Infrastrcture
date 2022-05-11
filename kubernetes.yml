@@ -35,6 +35,14 @@
     - containerd
     - kubernetes/node
     - kubernetes/controller
+  tasks: 
+    - name: Install Python pre-requisits
+      pip:
+        name:
+          - openshift
+          - pyyaml>6.0
+          - kubernetes 
+
 
 - import_playbook: playbooks/kubernetes/initialize_cluster.yml
 
