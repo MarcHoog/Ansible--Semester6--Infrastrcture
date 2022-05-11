@@ -3,7 +3,7 @@
   hosts: kube-master00
   tasks:
     - name:
-      kubernetes.core.k8s:
+      k8s:
         definition:
           apiVersion: storage.kys.io/v1
           kind: Storageclass
