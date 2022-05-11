@@ -5,7 +5,8 @@
     - name:
       k8s:
         kubeconfig: ~/.kube/config
-        host: http://10.8.0.1:6443 
+        host: https://10.8.0.1:6443
+        verify_ssl: false 
         definition:
           apiVersion: storage.kys.io/v1
           kind: Storageclass
