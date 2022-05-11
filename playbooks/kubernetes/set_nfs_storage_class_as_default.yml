@@ -14,7 +14,7 @@
         name:
           - openshift
           - pyyaml>3.11
-          - kubernetes==18.20.0 
+          - kubernetes>=18.20.0 
 
     - name:
       become: true
