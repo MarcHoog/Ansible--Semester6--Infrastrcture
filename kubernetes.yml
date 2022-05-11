@@ -44,6 +44,12 @@
 
 - import_playbook: playbooks/kubernetes/worker_join_cluster.yml
 
+- name: install kubernetes helm
+  hosts: kubernetes_masters
+  roles:
+    - helm
+    - helm/nfs-subdir
+
 - import_playbook: playbooks/kubernetes/set_nfs_storage_class_as_default.yml
 
 
