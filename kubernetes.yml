@@ -35,7 +35,15 @@
     - containerd
     - kubernetes/node
     - kubernetes/controller
-  tasks: 
+  tasks:
+
+    # CHANGES TO PLAYBOOK OR ROLE LATER
+
+    - name: Install required package
+      ansible.builtin.apt: 
+        name: pip3
+        state: present
+
     - name: Install Python pre-requisits
       pip:
         name:
