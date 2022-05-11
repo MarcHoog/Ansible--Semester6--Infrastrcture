@@ -5,5 +5,4 @@
   tags: everyone
   roles:
     - ansible
-    - qemuquest
-    
+    - qemuguest

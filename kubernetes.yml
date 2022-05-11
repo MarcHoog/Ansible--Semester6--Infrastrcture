@@ -3,7 +3,7 @@
   hosts: kube-nfs
   roles:
     - ansible
-    - qemuquest
+    - qemuguest
   tasks:
     
     - name: include role nfs servers
@@ -18,7 +18,7 @@
   hosts: kubernetes_workers
   roles:
     - ansible
-    - qemuquest
+    - qemuguest
     - containerd
     - kubernetes/node
 
@@ -26,7 +26,7 @@
   hosts: kubernetes_masters
   roles:
     - ansible
-    - qemuquest
+    - qemuguest
     - containerd
     - kubernetes/node
     - kubernetes/controller
