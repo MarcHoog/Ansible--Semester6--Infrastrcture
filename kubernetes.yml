@@ -35,8 +35,6 @@
     - containerd
     - kubernetes/node
     - kubernetes/controller
-    - helm
-    - helm/nfs-subdir
 
 - import_playbook: playbooks/kubernetes/initialize_cluster.yml
 
