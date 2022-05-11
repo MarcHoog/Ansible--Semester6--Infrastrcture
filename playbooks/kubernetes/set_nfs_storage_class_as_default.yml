@@ -12,9 +12,11 @@
     - name: Install Python pre-requisits
       pip:
         name:
-        - kubernetes>=12.0.0
-        - PyYAML>=3.11
-        - jsonpatch
+          - kubernetes>=12.0.0
+          - PyYAML>=3.11
+          - jsonpatch
+        executable: pip3
+        
 
     - name:
       become: true
