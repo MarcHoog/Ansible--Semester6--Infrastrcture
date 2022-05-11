@@ -4,6 +4,7 @@
   tasks:
     - name:
       k8s:
+        kube_config: ~/.kube/config
         definition:
           apiVersion: storage.kys.io/v1
           kind: Storageclass
