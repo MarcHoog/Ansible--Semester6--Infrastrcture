@@ -22,7 +22,6 @@
           ansible.builtin.apt:
             update_cache: true
             
-
         - name: Install helm
           ansible.builtin.apt:
             name: helm

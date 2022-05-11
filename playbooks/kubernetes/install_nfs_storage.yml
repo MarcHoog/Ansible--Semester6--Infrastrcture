@@ -1,0 +1,6 @@
+---
+  - name: Install NFS storage operator
+    hosts: kube-master00
+    tasks:
+
+      - name: 

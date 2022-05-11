@@ -1,5 +1,5 @@
 ---
- - hosts: kube-nfs-test
+ - hosts: kube-nfs
    name: make a test nfs server
    tasks:
     
