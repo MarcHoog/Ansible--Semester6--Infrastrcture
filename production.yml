@@ -3,12 +3,7 @@
 - name: pinging
   hosts: all
   tags: everyone
-  tasks:
-    - name: 'include ansible operator on all operational machines'
-      include_role:
-        name: ansible
-
-    - name: 'include qemuguest on all operational machines'
-      include_role:
-        name: qemuguest
+  roles:
+    - ansible
+    - qemuquest
     
