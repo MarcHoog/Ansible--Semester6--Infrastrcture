@@ -1,0 +1,26 @@
+---
+- name: install kubernetes nodes
+  hosts: kubernetes_workerse
+  roles:
+    - containerd
+    - kubernetes/node
+
+- name: install kubernetes masters
+  hosts: kubernetes_masters
+  roles:
+    - containerd
+    - kubernetes/node
+    - kubernetes/controller
+
+- name: make a test nfs server 
+  hosts: kube-nfs
+  tasks:
+    
+    - name: include role nfs server
+      include_role: 
+        name: nfs
+      vars:
+        nfs_exports:
+          - /srv/nfs4                *(rw,sync,no_subtree_check,crossmnt,fsid=0)
+          - /srv/nfs4/kubernetes     *(rw,sync,no_subtree_check)
+
