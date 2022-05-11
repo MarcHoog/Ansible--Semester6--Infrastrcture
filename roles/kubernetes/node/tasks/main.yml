@@ -13,12 +13,12 @@
 
     - name: Add kubernetes repostory key
       ansible.builtin.apt_key:
-        url: {{ kubernetes_repository_key }}
+        url: "{{ kubernetes_repository_key }}"
         state: present
 
     - name: Add Kubernetes repository 
       ansible.builtin.apt_repository:
-        repo: {{ kubernetes_repository_path }}
+        repo: "{{ kubernetes_repository_path }}"
         state: present
         filename: 'kubernetes'
 
