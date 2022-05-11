@@ -26,4 +26,10 @@
     - helm
     - helm/nfs-subdir
 
+- import_playbook: playbooks/kubernetes/initialize_cluster.yml
+
+- import_playbook: playbooks/kubernetes/initialize_cluster_network.yml
+
+- import_playbook: playbooks/kubernetes/worker_join_cluster.yml
+
 
