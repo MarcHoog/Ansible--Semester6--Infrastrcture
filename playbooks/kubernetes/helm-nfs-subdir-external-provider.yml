@@ -12,6 +12,7 @@
         kubernetes.core.helm:
           name: nfs-subdir-external-provisioner
           chart_ref: nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
+          release_namespace: default
           values:
             nfs:
               server: 10.8.0.253
