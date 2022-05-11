@@ -15,5 +15,5 @@
           values:
             nfs:
               server: 10.8.0.253
-              path: 
+              path: /srv/nfs4/kubernetes
         
