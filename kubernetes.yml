@@ -49,8 +49,8 @@
       pip:
         name:
           - openshift
-          - pyyaml>5.3
-          - kubernetes 
+          - pyyaml>6.0
+          - kubernetes==18.20.0 
 
 
 - import_playbook: playbooks/kubernetes/initialize_cluster.yml
