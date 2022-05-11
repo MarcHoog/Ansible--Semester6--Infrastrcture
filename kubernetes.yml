@@ -1,5 +1,5 @@
 ---
-- name: make a test nfs server 
+- name: make kubernetes nfs server
   hosts: kube-nfs
   tasks:
     
