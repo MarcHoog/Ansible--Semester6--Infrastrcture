@@ -1,9 +1,18 @@
 ---
-- name: make kubernetes nfs server
-  hosts: kube-nfs
-  roles:
+- name: Check if kubernetes nodes are reachable
+  hosts: kubernetes
+  tasks: 
+    - name: Wait for connection to nodes
+      wait_for_connection:
+
+- name: Install Environment base
+  hosts: kubernetes
+  roles: 
     - ansible
     - qemuguest
+
+- name: make kubernetes nfs server
+  hosts: kube-nfs
   tasks:
     
     - name: include role nfs servers
@@ -17,16 +26,12 @@
 - name: install kubernetes nodes
   hosts: kubernetes_workers
   roles:
-    - ansible
-    - qemuguest
     - containerd
     - kubernetes/node
 
 - name: install kubernetes masters
   hosts: kubernetes_masters
   roles:
-    - ansible
-    - qemuguest
     - containerd
     - kubernetes/node
     - kubernetes/controller
