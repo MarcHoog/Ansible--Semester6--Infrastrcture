@@ -23,6 +23,7 @@
       ansible.builtin.file:
         path: /etc/sysctl.d/kubernetes.conf
         state: touch
+      changed_when: False
 
     - name: Ensure sysctl paramaters within sysctl kubernetes.conf are set
       become: True
@@ -100,7 +101,7 @@
         name: containerd
       when: group_driver is succeeded
 
-    - name: start and enable containerd
+    - name: restart and enable containerd
       ansible.builtin.systemd:
         state: restarted
         enabled: yes
