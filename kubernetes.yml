@@ -1,6 +1,9 @@
 ---
 - name: make kubernetes nfs server
   hosts: kube-nfs
+  roles:
+    - ansible
+    - qemuquest
   tasks:
     
     - name: include role nfs servers
@@ -14,12 +17,16 @@
 - name: install kubernetes nodes
   hosts: kubernetes_workers
   roles:
+    - ansible
+    - qemuquest
     - containerd
     - kubernetes/node
 
 - name: install kubernetes masters
   hosts: kubernetes_masters
   roles:
+    - ansible
+    - qemuquest
     - containerd
     - kubernetes/node
     - kubernetes/controller
@@ -31,5 +38,7 @@
 - import_playbook: playbooks/kubernetes/initialize_cluster_network.yml
 
 - import_playbook: playbooks/kubernetes/worker_join_cluster.yml
+
+- import_playbook: playbooks/kubernetes/set_nfs_storage_class_as_default.yml
 
 
