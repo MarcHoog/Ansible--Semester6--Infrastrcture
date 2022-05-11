@@ -5,7 +5,7 @@
     - name:
       become: true
       k8s:
-        config: /root/.kube/config
+        kubeconfig: /root/.kube/config
         definition:
           apiVersion: storage.kys.io/v1
           kind: Storageclass
