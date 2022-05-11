@@ -3,6 +3,7 @@
   block:
     - name: apt-update
       command: apt update
+      changed_when: False
 
     - name: install qemu quest agent on all machines
       ansible.builtin.apt:
