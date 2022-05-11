@@ -90,11 +90,21 @@
         content: |
           [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
               SystemdCgroup = true
+      register: group_driver
               
+    - name: start and enable containerd
+      ansible.builtin.systemd:
+        state: started
+        enabled: yes
+        name: containerd
+      when: group_driver.ok
+
     - name: start and enable containerd
       ansible.builtin.systemd:
         state: restarted
         enabled: yes
         name: containerd
+      when: group_driver.changed
+    
     
   become: true

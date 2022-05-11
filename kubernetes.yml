@@ -23,6 +23,7 @@
     - containerd
     - kubernetes/node
     - kubernetes/controller
-    - kubernetes/helm
+    - helm
+    - helm/nfs-subdir
 
 
