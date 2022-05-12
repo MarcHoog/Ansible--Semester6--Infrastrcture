@@ -2,26 +2,24 @@
 - name: Make nfs-subdir the main storage client
   hosts: kube-master00
   tasks:
-      
+    # CHANGES TO PLAYBOOK OR ROLE LATER
+
     - name: Install required package
       become: true
       ansible.builtin.apt: 
         name: pip
         state: present
 
-    - name: Install Python pre-requisits
-      pip:
-        name:
-          - kubernetes>=12.0.0
-          - PyYAML>=3.11
-          - jsonpatch
-        executable: pip3
-        
-
+#    - name: Install Python pre-requisits
+#      pip:
+#       name:
+#        - openshift
+#          - pyyaml>3.11
+#         - kubernetes==18.20.0 
+    
     - name:
       become: true
       k8s:
-        kubeconfig: /root/.kube/config
         definition:
           apiVersion: storage.kys.io/v1
           kind: Storageclass

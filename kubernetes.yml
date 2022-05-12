@@ -37,22 +37,6 @@
     - kubernetes/controller
   tasks:
 
-    # CHANGES TO PLAYBOOK OR ROLE LATER
-
-    - name: Install required package
-      become: true
-      ansible.builtin.apt: 
-        name: pip
-        state: present
-
-    - name: Install Python pre-requisits
-      pip:
-        name:
-          - openshift
-          - pyyaml>3.11
-          - kubernetes==18.20.0 
-
-
 - import_playbook: playbooks/kubernetes/initialize_cluster.yml
 
 - import_playbook: playbooks/kubernetes/initialize_cluster_network.yml
@@ -65,6 +49,6 @@
     - helm
     - helm/nfs-subdir
 
-- import_playbook: playbooks/kubernetes/set_nfs_storage_class_as_default.yml
+# - import_playbook: playbooks/kubernetes/set_nfs_storage_class_as_default.yml
 
 
