@@ -20,11 +20,12 @@
         ansible_python_interpreter: /usr/bin/python3
     
     - name: doing some kube shit
-      k8s:
+      k8s_json_patch:
         kind: StorageClass
         name: nfs-client
-        definition:
-          metadata:
-            annotations:
-              Storageclass.kubernetes.io/is-default-class: "True"
-  
+        patch:
+          definition:
+            metadata:
+              annotations:
+                Storageclass.kubernetes.io/is-default-class: "False
+    

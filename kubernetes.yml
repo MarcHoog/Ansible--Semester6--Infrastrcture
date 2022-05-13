@@ -49,6 +49,12 @@
     - helm
     - helm/nfs-subdir
 
+  tasks:
+    
+    - name: mark nfs storageclass as default
+      command:
+        cmd: 
+
 # - import_playbook: playbooks/kubernetes/set_nfs_storage_class_as_default.yml
 
 
