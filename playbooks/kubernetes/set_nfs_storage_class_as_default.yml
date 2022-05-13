@@ -21,6 +21,8 @@
     
     - name:
       k8s:
+        kubeconfig: ~/.kube/config
+        api: https://10.8.0.1:6443
         definition:
           apiVersion: storage.kys.io/v1
           kind: Storageclass
