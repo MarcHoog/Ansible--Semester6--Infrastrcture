@@ -16,6 +16,8 @@
         - openshift
         - pyyaml>3.11
         - kubernetes>=12.00.0 
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
     
     - name:
       become: true
