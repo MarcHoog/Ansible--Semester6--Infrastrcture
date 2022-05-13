@@ -34,7 +34,7 @@ subnet {{ subnet }} netmask {{ netmask }} {
  option domain-name-servers: {{ domain_name_servers|join (', ') }};
 {% end if %}
 {% if domain_name is defined %}
- option domain-name: "{domain_name}";
+ \option domain-name: "{domain_name}";
 {% end if %}
 {% endfor %}
 }
