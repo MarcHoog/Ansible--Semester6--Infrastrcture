@@ -66,6 +66,6 @@
       vars:
         ansible_python_interpreter: /usr/bin/python3
 
-# - import_playbook: playbooks/kubernetes/set_nfs_storage_class_as_default.yml
+- import_playbook: playbooks/kubernetes/default_storage_class
 
 
