@@ -7,7 +7,6 @@
         kind: StorageClass
         name: nfs-client
         patch:
-          definition:
-            metadata:
-              annotations:
-                Storageclass.kubernetes.io/is-default-class: "False"
+          - op: replace
+            patch: Storageclass.kubernetes.io/is-default-class
+            value: False
