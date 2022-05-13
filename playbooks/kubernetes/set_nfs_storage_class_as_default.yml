@@ -20,7 +20,7 @@
         ansible_python_interpreter: /usr/bin/python3
     
     - name: doing some kube shit
-      k8s:
+      kubernetes.core.k8s:
         state: patched
         kind: StorageClass
         name: nfs-client
