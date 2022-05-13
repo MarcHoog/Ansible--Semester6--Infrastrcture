@@ -66,6 +66,5 @@
       vars:
         ansible_python_interpreter: /usr/bin/python3
 
-- import_playbook: playbooks/kubernetes/default_storage_class
-
+- import_playbook: playbooks/kubernetes/default_stroge_class.yml
 
