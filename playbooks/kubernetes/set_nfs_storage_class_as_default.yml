@@ -22,7 +22,7 @@
     - name: doing some kube shit
       k8s:
         definition:
-          apiVersion: storage.kys.io/v1
+          apiVersion: storage.k8s.io/v1
           kind: Storageclass
           metadata:
             name: nfs-client
