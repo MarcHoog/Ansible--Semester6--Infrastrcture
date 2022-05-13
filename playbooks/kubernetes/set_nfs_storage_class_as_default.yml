@@ -3,7 +3,7 @@
   hosts: kube-master00
   tasks:
     - name: doing some kube shit
-      k8s_json_patch:
+      kubernetes.core.k8s_json_patch:
         kind: StorageClass
         name: nfs-client
         patch:
