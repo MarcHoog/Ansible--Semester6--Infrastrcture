@@ -21,7 +21,6 @@
     
     - name: doing some kube shit
       k8s:
-        state: patch
         kind: StorageClass
         name: nfs-client
         definition:
