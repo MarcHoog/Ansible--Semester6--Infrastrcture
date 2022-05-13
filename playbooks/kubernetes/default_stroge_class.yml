@@ -13,6 +13,7 @@
         definition:
           metadata:
             annotations:
-              Storageclass.kubernetes.io/is-default-class: "False"
+              storageclass.kubernetes.io/is-default-class: "false"
+              
   
 
