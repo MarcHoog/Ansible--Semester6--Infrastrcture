@@ -2,23 +2,6 @@
 - name: Make nfs-subdir the main storage client
   hosts: kube-master00
   tasks:
-    # CHANGES TO PLAYBOOK OR ROLE LATER
-
-    - name: Install required package
-      become: true
-      ansible.builtin.apt: 
-        name: pip
-        state: present
-
-    - name: Install Python pre-requisits
-      pip:
-       name:
-        - openshift
-        - pyyaml>3.11
-        - kubernetes==11.00.0 
-      vars:
-        ansible_python_interpreter: /usr/bin/python3
-    
     - name: doing some kube shit
       k8s_json_patch:
         kind: StorageClass
@@ -27,5 +10,4 @@
           definition:
             metadata:
               annotations:
-                Storageclass.kubernetes.io/is-default-class: "False
-    
+                Storageclass.kubernetes.io/is-default-class: "False"
