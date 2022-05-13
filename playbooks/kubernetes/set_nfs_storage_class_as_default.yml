@@ -20,7 +20,6 @@
         ansible_python_interpreter: /usr/bin/python3
     
     - name:
-      become: true
       k8s:
         definition:
           apiVersion: storage.kys.io/v1
