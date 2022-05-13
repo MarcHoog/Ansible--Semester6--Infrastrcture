@@ -1,6 +1,4 @@
 ics_dhcp_packages: isc-dhcp-server
 ics_dhcp_service: isc-dhcp-server.service
 ics_dhcp_config: /etc/dhcp/dhcpd.conf
-
-
 ics_dhcp_conf_dir: /etc/dhcp
