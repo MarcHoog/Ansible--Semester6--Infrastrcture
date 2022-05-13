@@ -50,10 +50,20 @@
     - helm/nfs-subdir
 
   tasks:
-    
-    - name: mark nfs storageclass as default
-      command:
-        cmd: 
+    - name: Install pip
+      become: true
+      ansible.builtin.apt: 
+        name: pip
+        state: present
+
+    - name: Install Python pre-requisits packages for managing kubenetes with Ansible
+      pip:
+       name:
+        - openshift
+        - pyyaml>3.11
+        - kubernetes==11.00.0 
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
 # - import_playbook: playbooks/kubernetes/set_nfs_storage_class_as_default.yml
 
