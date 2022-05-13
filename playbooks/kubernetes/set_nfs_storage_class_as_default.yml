@@ -15,11 +15,11 @@
        name:
         - openshift
         - pyyaml>3.11
-        - kubernetes>=11.00.0 
+        - kubernetes==11.00.0 
       vars:
         ansible_python_interpreter: /usr/bin/python3
     
-    - name:
+    - name: doing some kube shit
       k8s:
         definition:
           apiVersion: storage.kys.io/v1
