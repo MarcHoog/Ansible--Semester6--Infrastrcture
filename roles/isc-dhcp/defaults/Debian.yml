@@ -1,0 +1,19 @@
+---
+default_lease_time: 600
+max_lease_time: 7200
+
+
+network:
+  - subnet: 192.168.1.0
+    netmask: 255.255.255.0
+    range_start: 192.168.1.150
+    range_end: 192.168.1.200
+    max-lease-time: 120
+    default-lease-time: 120
+    option:
+      routers: 
+      - 192.168.1.254
+      domain_name_servers: 
+      - 192.168.1.1
+      - 192.168.1.253
+      domain_name: test.local
