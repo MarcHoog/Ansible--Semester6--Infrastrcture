@@ -1,0 +1,7 @@
+---
+- name: reload dhcp
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    enabled: yes
+    name: "{{ics_dhcp_packages}}"
