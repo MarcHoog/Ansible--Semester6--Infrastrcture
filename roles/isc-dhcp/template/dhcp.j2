@@ -1,0 +1,42 @@
+# minimal sample /etc/dhcp/dhcpd.conf
+# default-lease-time 600;
+# max-lease-time 7200;
+
+# subnet 192.168.1.0 netmask 255.255.255.0 {
+# range 192.168.1.150 192.168.1.200;
+# option routers 192.168.1.254;
+# option domain-name-servers 192.168.1.1, 192.168.1.2;
+# option domain-name "mydomain.example";
+#}
+
+# This configuration is created by ansible
+# Manual changes will probarly be overwritten
+
+{% if default_lease_time is defined %}
+default_lease_time: {{ default_lease_time }};
+{% endif %}
+{% if max_lease_time is defined %}
+max_lease_time: {{ max_lease_time }};
+{% endif %}
+
+{% for network in networks %}
+{% if subnet is defined and netmask is defined %}
+subnet {{ subnet }} netmask {{ netmask }} {
+{% endif %}
+{% if range_start is defined and range_end is defined %}
+ range {{ range_start }} {{ range_end }};
+{% end if %}
+{% for option in network.options%}
+{% if routers is defined %}
+ option routers: {{ routers|join (', ') }};
+{% end if %}
+{% if domain_name_servers is defined %}
+ option domain-name-servers: {{ domain_name_servers|join (', ') }};
+{% end if %}
+{% if domain_name is defined %}
+ option domain-name: "{domain_name}";
+{% end if %}
+{% endfor %}
+}
+{% endfor %}
+

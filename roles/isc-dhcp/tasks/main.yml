@@ -1,2 +1,8 @@
 ---
-# tasks file for foo
+- name: install service
+
+
+- name: create dhcp.conf
+
+
+  notify: reload dhcp
