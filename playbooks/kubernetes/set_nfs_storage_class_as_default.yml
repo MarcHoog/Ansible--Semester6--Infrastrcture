@@ -21,13 +21,11 @@
     
     - name: doing some kube shit
       k8s:
+        state: patched
+        kind: StorageClass
+        name: nfs-client
         definition:
-          apiVersion: storage.k8s.io/v1
-          kind: StorageClass
           metadata:
-            name: nfs-client
             annotations:
               Storageclass.kubernetes.io/is-default-class: "True"
-          provisioner: cluster.local/nfs-subdir-external-provisioner
-  
   
