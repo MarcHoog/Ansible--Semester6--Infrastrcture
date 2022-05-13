@@ -1,6 +1,7 @@
 ---
 - name: initializing the cluster on the master node
   hosts: kube-master00
+  gather_facts: false
   tasks: 
 
     - name: store the statistics of /.ansible/cluster_initialized.txt in the 'out' variable

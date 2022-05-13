@@ -1,6 +1,7 @@
 ---
 - name: initializing the cluster network
   hosts: kube-master00
+  gather_facts: false
   tasks: 
 
   - name: store the statistics of /.ansible/pod_network_setup.txt in the 'out' variable

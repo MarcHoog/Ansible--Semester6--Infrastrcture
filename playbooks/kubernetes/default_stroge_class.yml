@@ -1,19 +1,18 @@
 ---
 - name: Make nfs-subdir the main storage client
   hosts: kube-master00
+  gather_facts: false
   tasks:
     
     - name: doing some kube shit
       k8s:
-        apply: true
-        force: true
         state: present
         kind: StorageClass
         name: nfs-client
         definition:
           metadata:
             annotations:
-              storageclass.kubernetes.io/is-default-class: "false"
+              storageclass.kubernetes.io/is-default-class: "true"
               
   
 

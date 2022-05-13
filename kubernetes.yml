@@ -45,6 +45,7 @@
 
 - name: install kubernetes helm
   hosts: kubernetes_masters
+  gather_facts: false
   roles:
     - helm
     - helm/nfs-subdir
