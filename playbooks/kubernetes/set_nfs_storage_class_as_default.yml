@@ -10,12 +10,12 @@
         name: pip
         state: present
 
-#    - name: Install Python pre-requisits
-#      pip:
-#       name:
-#        - openshift
-#          - pyyaml>3.11
-#         - kubernetes==18.20.0 
+    - name: Install Python pre-requisits
+      pip:
+       name:
+        - openshift
+        - pyyaml>3.11
+        - kubernetes>=12.00.0 
     
     - name:
       become: true
