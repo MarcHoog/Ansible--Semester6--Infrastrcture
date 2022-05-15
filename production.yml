@@ -10,10 +10,10 @@
   tasks:
 
     - name: install neofetch
-      become: true
       ansibe.builtin.apt:
         name:  neofetch
         state: present
+      become: true
       register: result
       until: result is successful
           
