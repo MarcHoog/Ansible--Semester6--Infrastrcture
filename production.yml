@@ -10,7 +10,7 @@
   tasks:
 
     - name: install neofetch
-      ansibe.builtin.apt:
+      ansible.builtin.apt:
         name:  neofetch
         state: present
       become: true
