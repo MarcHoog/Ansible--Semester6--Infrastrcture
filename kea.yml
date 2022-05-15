@@ -9,6 +9,7 @@
         kea_dhcp4:
           renew-timer: 1000
           rebind-timer: 2000
+          authoritative: true
           # Add names of interfaces to listen on
           interfaces-config:
             interfaces:
@@ -29,22 +30,27 @@
             max-reclaim-leases: 100
             max-reclaim-time: 250
             unwarned-reclaim-cycles: 5
+            
           # Global (inherited by all subnets) lease lifetime is mandatory parameter.
           valid-lifetime: 4000
           # Below an example of the simple subnet declarations
           subnet4:
-            - subnet: 192.0.2.0/24
-              next-server: 192.0.2.234
+            - subnet: 10.0.0.0/24
               pools:
-                - pool: 192.0.2.1 - 192.0.2.200
-              reservations:
-                - hw-address: "1a:1b:1c:1d:1e:1f"
-                  ip-address: 192.0.2.202
-            - subnet: 192.0.3.0/24
+                - pool: 10.0.0.5 - 10.0.0.200
+              option-data:
+                - name: routers
+                  data: "10.0.0.254"
+                - name: domain-name-servers
+                  data: "10.0.0.254"
+                - name: domain-name
+                  data: "lab.local"
+            
+            - subnet: 10.8.0.0/24
               pools:
-                - pool: 192.0.3.1 - 192.0.3.200
-              relay:
-                ip-address: 10.0.0.1
-            - subnet: 192.0.4.0/24
-              pools:
-                - pool: 192.0.4.1 - 192.0.4.200
+                - pool: 10.8.0.5 - 10.0.0.200
+           
+              
+              user-context:
+                note: kubernetes network
+              
