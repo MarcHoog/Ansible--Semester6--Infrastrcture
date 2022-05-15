@@ -15,10 +15,4 @@
   register: result
   until: result is successful
 
-- name: Print keactrl status
-  command:
-    cmd: keactrl status
-  register: output
-  debug: var=out.stdout_lines
-
 - include-tasks: config.yml 
