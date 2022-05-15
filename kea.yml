@@ -1,2 +1,50 @@
-- name: setting up Kea DHCP
-  
+---
+- name: setting up kea dhcp server
+  hosts: kea
+  tasks:
+    - name: Importing kea role
+      include_role:
+          name: kea
+      vars:
+        kea_dhcp4:
+          renew-timer: 1000
+          rebind-timer: 2000
+          # Add names of interfaces to listen on
+          interfaces-config:
+            interfaces:
+              - "*"
+              # - eth0
+              # - eth1
+            dhcp-socket-type: raw
+          # Use Memfile lease database backend to store leases in a CSV file.
+          lease-database:
+            type: memfile
+            persist: true
+            lfc-interval: 0
+          # Setup reclamation of the expired leases and leases affinity.
+          expired-leases-processing:
+            reclaim-timer-wait-time: 10
+            flush-reclaimed-timer-wait-time: 25
+            hold-reclaimed-time: 3600
+            max-reclaim-leases: 100
+            max-reclaim-time: 250
+            unwarned-reclaim-cycles: 5
+          # Global (inherited by all subnets) lease lifetime is mandatory parameter.
+          valid-lifetime: 4000
+          # Below an example of the simple subnet declarations
+          subnet4:
+            - subnet: 192.0.2.0/24
+              next-server: 192.0.2.234
+              pools:
+                - pool: 192.0.2.1 - 192.0.2.200
+              reservations:
+                - hw-address: "1a:1b:1c:1d:1e:1f"
+                  ip-address: 192.0.2.202
+            - subnet: 192.0.3.0/24
+              pools:
+                - pool: 192.0.3.1 - 192.0.3.200
+              relay:
+                ip-address: 10.0.0.1
+            - subnet: 192.0.4.0/24
+              pools:
+                - pool: 192.0.4.1 - 192.0.4.200

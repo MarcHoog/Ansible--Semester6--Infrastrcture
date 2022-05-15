@@ -6,3 +6,14 @@
   roles:
     - ansible
     - qemuguest
+
+  tasks:
+
+    - name: install neofetch
+      become: true
+      ansibe.builtin.apt:
+        name:  neofetch
+        state: present
+      register: result
+      until: result is successful
+          
