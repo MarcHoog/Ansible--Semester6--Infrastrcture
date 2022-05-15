@@ -7,51 +7,52 @@
           name: kea
       vars:
         kea_dhcp4:
-          renew-timer: 1000
-          rebind-timer: 2000
-          
-          # Add names of interfaces to listen on
-          interfaces-config:
-            interfaces:
-              - "*"
-              # - eth0
-              # - eth1
-            dhcp-socket-type: raw
-          # Use Memfile lease database backend to store leases in a CSV file.
-          lease-database:
-            type: memfile
-            persist: true
-            lfc-interval: 0
-          # Setup reclamation of the expired leases and leases affinity.
-          expired-leases-processing:
-            reclaim-timer-wait-time: 10
-            flush-reclaimed-timer-wait-time: 25
-            hold-reclaimed-time: 3600
-            max-reclaim-leases: 100
-            max-reclaim-time: 250
-            unwarned-reclaim-cycles: 5
+          "dhcp4":
+            renew-timer: 1000
+            rebind-timer: 2000
             
-          # Global (inherited by all subnets) lease lifetime is mandatory parameter.
-          valid-lifetime: 4000
-          
-          # Below an example of the simple subnet declarations
-          subnet4:
-            - subnet: 10.0.0.0/24
-              pools:
-                - pool: 10.0.0.5 - 10.0.0.200
-              option-data:
-                - name: routers
-                  data: "10.0.0.254"
-                - name: domain-name-servers
-                  data: "10.0.0.254"
-                - name: domain-name
-                  data: "lab.local"
-            
-            - subnet: 10.8.0.0/24
-              pools:
-                - pool: 10.8.0.5 - 10.0.0.200
-           
+            # Add names of interfaces to listen on
+            interfaces-config:
+              interfaces:
+                - "*"
+                # - eth0
+                # - eth1
+              dhcp-socket-type: raw
+            # Use Memfile lease database backend to store leases in a CSV file.
+            lease-database:
+              type: memfile
+              persist: true
+              lfc-interval: 0
+            # Setup reclamation of the expired leases and leases affinity.
+            expired-leases-processing:
+              reclaim-timer-wait-time: 10
+              flush-reclaimed-timer-wait-time: 25
+              hold-reclaimed-time: 3600
+              max-reclaim-leases: 100
+              max-reclaim-time: 250
+              unwarned-reclaim-cycles: 5
               
-              user-context:
-                note: kubernetes network
+            # Global (inherited by all subnets) lease lifetime is mandatory parameter.
+            valid-lifetime: 4000
+            
+            # Below an example of the simple subnet declarations
+            subnet4:
+              - subnet: 10.0.0.0/24
+                pools:
+                  - pool: 10.0.0.5 - 10.0.0.200
+                option-data:
+                  - name: routers
+                    data: "10.0.0.254"
+                  - name: domain-name-servers
+                    data: "10.0.0.254"
+                  - name: domain-name
+                    data: "lab.local"
+                user-context:
+                  note: kubernetes network
+              
+              - subnet: 10.8.0.0/24
+                pools:
+                  - pool: 10.8.0.5 - 10.0.0.200
+                user-context:
+                  note: kubernetes network
               
