@@ -1,6 +1,6 @@
 ---
-- name: check kea config
-  command:
-    cmd:
+#- name: check kea config
+#  command:
+#    cmd:
 
-- name: restart kea-dhcp
+#- name: restart kea-dhcp

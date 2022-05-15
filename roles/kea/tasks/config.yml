@@ -7,9 +7,9 @@
     owner: root
     group: root
     mode: o=rw,g=r,o=r
-  notify:
-    - check kea-dhcp
-    - restart kea-dhc
+#  notify:
+#    - check kea-dhcp
+#    - restart kea-dhc
   when: kea_dhcp4 is defined
 
 - name: config | Configuring Kea DHCPv6
@@ -20,9 +20,9 @@
     owner: root
     group: root
     mode: o=rw,g=r,o=r
-  notify:
-    - check kea-dhcp
-    - restart kea-dhc
+#  notify:
+#    - check kea-dhcp
+#    - restart kea-dhc
   when: kea_dhcp6 is defined
 
 - name: config | Configuring Kea DHCP DDNS
@@ -33,7 +33,7 @@
     owner: root
     group: root
     mode: o=rw,g=r,o=r
-  notify:
-    - check kea config
-    - restart kea-dhcp
+#  notify:
+#    - check kea config
+#    - restart kea-dhcp
   when: kea_dhcp_ddns is defined
