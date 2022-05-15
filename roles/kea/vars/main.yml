@@ -10,6 +10,6 @@ kea_dhcp_packages:
 
 kea_path: /etc/kea
 
-kea_dhcp_ddns_conf: kea-dhcp-ddns.conf"
-kea_dhcp4_conf: kea-dhcp4.conf"
-kea_dhcp6_conf: kea-dhcp6.conf"
+kea_dhcp_ddns_conf: kea-dhcp-ddns.conf
+kea_dhcp4_conf: kea-dhcp4.conf
+kea_dhcp6_conf: kea-dhcp6.conf
