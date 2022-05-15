@@ -1,2 +1,6 @@
 ---
-# handlers file for foo
+- name: check kea config
+  command:
+    cmd:
+
+- name: restart kea-dhcp

@@ -1,2 +1,24 @@
 ---
-# tasks file for foo
+- name: Installing Pre-Reqs
+  ansible.builtin.apt:
+    name: "{{ kea_pre_reqs }}"
+    state: present
+  become: true
+  register: result
+  until: result is successful
+
+- name: Installing Kea DHCP kea_dhcp_packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ kea_dhcp_packages }}"
+    state: present
+  register: result
+  until: result is successful
+
+- name: Print keactrl status
+  command:
+    cmd: keactrl status
+  register: output
+  debug: var=out.stdout_lines
+
+- include-tasks: config.yml 

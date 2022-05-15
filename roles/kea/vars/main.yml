@@ -1,2 +1,15 @@
 ---
-# vars file for foo
+kea_pre_reqs:
+  - apt-transport-https
+
+kea_dhcp_packages:
+      - kea-admin
+      - kea-dhcp-ddns-server
+      - kea-dhcp4-server
+      - kea-dhcp6-server
+
+kea_path: /etc/kea
+
+kea_dhcp_ddns_conf: kea-dhcp-ddns.conf"
+kea_dhcp4_conf: kea-dhcp4.conf"
+kea_dhcp6_conf: kea-dhcp6.conf"

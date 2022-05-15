@@ -1,0 +1,39 @@
+---
+- name: config | Configuring Kea DHCPv4
+  become: true
+  template:
+    src: "{{ kea_dhcp4_conf + '.j2' }}"
+    dest: "{{  kea_path + '/' + kea_dhcp4_conf }}"
+    owner: root
+    group: root
+    mode: o=rw,g=r,o=r
+  notify:
+    - check kea-dhcp
+    - restart kea-dhc
+  when: kea_dhcp4 is defined
+
+- name: config | Configuring Kea DHCPv6
+  become: true
+  template:
+    src: "{{ kea_dhcp6_conf + '.j2' }}"
+    dest: "{{  kea_path + '/' + kea_dhcp6_conf }}"
+    owner: root
+    group: root
+    mode: o=rw,g=r,o=r
+  notify:
+    - check kea-dhcp
+    - restart kea-dhc
+  when: kea_dhcp6 is defined
+
+- name: config | Configuring Kea DHCP DDNS
+  become: true
+  template:
+    src: "{{ kea_kea_dhcp_ddns_conf + '.j2' }}"
+    dest: "{{  kea_path + '/' + kea_dhcp_ddns_conf }}"
+    owner: root
+    group: root
+    mode: o=rw,g=r,o=r
+  notify:
+    - check kea config
+    - restart kea-dhcp
+  when: kea_dhcp_ddns is defined
