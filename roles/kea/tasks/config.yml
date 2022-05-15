@@ -3,7 +3,7 @@
   become: true
   template:
     src: "{{ kea_dhcp4_conf + '.j2' }}"
-    dest: "kea_path + '/' + {{ kea_dhcp4_conf }}
+    dest: "kea_path + '/' + {{ kea_dhcp4_conf }}"
     owner: root
     group: root
     mode: o=rw,g=r,o=r
@@ -29,7 +29,7 @@
   become: true
   template:
     src: "{{ kea_kea_dhcp_ddns_conf + '.j2' }}"
-    dest: "kea_path + '/' + {{ kea_dhcp_ddns_conf }}
+    dest: "kea_path + '/' + {{ kea_dhcp_ddns_conf }}"
     owner: root
     group: root
     mode: o=rw,g=r,o=r
