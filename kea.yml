@@ -7,7 +7,7 @@
           name: kea
       vars:
         kea_dhcp4:
-          "dhcp4":
+          dhcp4:
             renew-timer: 1000
             rebind-timer: 2000
             
