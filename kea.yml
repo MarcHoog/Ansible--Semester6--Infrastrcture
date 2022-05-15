@@ -18,11 +18,13 @@
                 # - eth0
                 # - eth1
               dhcp-socket-type: raw
+            
             # Use Memfile lease database backend to store leases in a CSV file.
             lease-database:
               type: memfile
               persist: true
               lfc-interval: 0
+            
             # Setup reclamation of the expired leases and leases affinity.
             expired-leases-processing:
               reclaim-timer-wait-time: 10
