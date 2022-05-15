@@ -52,7 +52,7 @@
               
               - subnet: 10.8.0.0/24
                 pools:
-                  - pool: 10.8.0.5 - 10.0.0.200
+                  - pool: 10.8.0.5 - 10.8.0.200
                 user-context:
                   note: kubernetes network
               
