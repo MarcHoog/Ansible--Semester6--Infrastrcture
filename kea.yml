@@ -9,7 +9,7 @@
         kea_dhcp4:
           renew-timer: 1000
           rebind-timer: 2000
-          authoritative: true
+          
           # Add names of interfaces to listen on
           interfaces-config:
             interfaces:
@@ -33,6 +33,8 @@
             
           # Global (inherited by all subnets) lease lifetime is mandatory parameter.
           valid-lifetime: 4000
+          authoritative: true
+          
           # Below an example of the simple subnet declarations
           subnet4:
             - subnet: 10.0.0.0/24
