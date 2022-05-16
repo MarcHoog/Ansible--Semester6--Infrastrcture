@@ -16,7 +16,7 @@
             algorithm: hmac-sha256
             secret: "0VEPpFjz5uvahWtTtszZl2YEIQd7cNzKWwhlsm7ZVew="
         bind_extra_include_files:
-          - "/etc/bind/rndc-key\"
+          - "/etc/bind/rndc-key"
         bind_zones:
           - name: lab.mylocal          
             create_reverse_zones: true  
