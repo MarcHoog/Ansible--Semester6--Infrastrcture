@@ -26,6 +26,10 @@
                 ip: 10.0.0.10
               - name: ns2
                 ip: 10.0.0.1
+              - name: ansible
+                ip: 10.0.0.2
+              - name: kea
+                ip: 10.0.0.252
 
 - name: creating bind9 recursive server
   hosts: ns2
