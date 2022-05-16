@@ -10,6 +10,7 @@
           - 10.0.0.10
         bind_allow_query:
           - 10.0.0.1
+          - 10.0.0.254
         bind_zones:
           - name: lab.mylocal          
             create_reverse_zones: true  
@@ -20,7 +21,7 @@
             networks:
               -  "10"
             allow_update:
-              - 10.0.0.252
+              - 10.0.0.254
             hosts:
               - name: ns1
                 ip: 10.0.0.10
@@ -30,7 +31,7 @@
                 ip: 10.0.0.2
               - name: kea
                 ip: 10.0.0.252
-
+  
 - name: creating bind9 recursive server
   hosts: ns2
   tasks:
@@ -39,6 +40,11 @@
         name: bind9
       vars:
         bind_recursion: true
+        bind_dns_keys:
+          - name: rndc-key
+            algorithm: hmac-sha256
+            secret: "0VEPpFjz5uvahWtTtszZl2YEIQd7cNzKWwhlsm7ZVew="
+        bind_zone_minimum_ttl: 60
         bind_listen_ipv4:
           - any
         bind_allow_query:
