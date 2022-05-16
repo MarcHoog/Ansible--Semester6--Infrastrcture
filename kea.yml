@@ -48,11 +48,10 @@
             # Global (inherited by all subnets) lease lifetime is mandatory parameter.
             valid-lifetime: 4000
             
-            ddns-send-updates: true
-            ddns-override-no-update: true
-            ddns-replace-client-name: "never"
-            ddns-update-on-renew: false
-            ddns-use-conflict-resolution: true
+            # ddns-send-updates: true
+            # ddns-replace-client-name: "never"
+            # ddns-update-on-renew: false
+            # ddns-use-conflict-resolution: true
 
             # Below an example of the simple subnet declarations
             subnet4:
