@@ -11,8 +11,8 @@
             renew-timer: 1000
             rebind-timer: 2000
 
-
-
+            dhcp-ddns:
+              enable-updates: true
             
             # Add names of interfaces to listen on
             interfaces-config:
