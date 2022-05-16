@@ -1,0 +1,17 @@
+---
+- name: testing bind9 role
+  hosts: bind9
+  tasks: 
+
+
+    - name: installing bind9 role
+      include_role:
+        name: bind9
+      vars:
+        bind_zones:
+          - name: lab.local             # Domain name
+            create_reverse_zones: False  # Skip creation of reverse zones
+            primaries:
+              - 10.0.0.3                # Primary server(s) for this zone
+            name_servers:
+              - bind9.lab.local.
