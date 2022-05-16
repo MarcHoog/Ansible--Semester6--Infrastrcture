@@ -20,13 +20,17 @@
               max-queue-size: 1024
               ncr-protocol: "UDP"
               ncr-format: "JSON"
-        
-            ddns-send-updates: true 
-            ddns-override-no-update: false
-            ddns-override-client-update: true
-            ddns-replace-client-name: true
-            ddns-update-on-renew: true
-            ddns-use-conflict-resolution: true
+
+            ddns-send-updates": true,
+            ddns-override-no-update": true
+            ddns-override-client-update": false
+            ddns-replace-client-name": "never"
+            ddns-generated-prefix": ""
+            ddns-qualifying-suffix": ""
+            ddns-update-on-renew": false,
+            ddns-use-conflict-resolution": true,
+            hostname-char-set": ""
+            hostname-char-replacement": ""
 
             
             # Add names of interfaces to listen on
