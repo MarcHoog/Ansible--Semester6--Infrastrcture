@@ -51,3 +51,29 @@
                     data: "lab.local"
                 user-context:
                   note: Personalnetwork
+
+              - subnet: 10.0.0.0/24
+                pools:
+                  - pool: 10.0.0.5 - 10.0.0.200
+                option-data:
+                  - name: routers
+                    data: "10.0.0.254"
+                  - name: domain-name-servers
+                    data: "10.0.0.254"
+                  - name: domain-name
+                    data: "lab.local"
+                user-context:
+                  note: Service network
+
+              - subnet: 10.8.0.1/24
+                pools:
+                  - pool: 10.8.0.5 - 10.0.0.200
+                option-data:
+                  - name: routers
+                    data: "10.8.0.254"
+                  - name: domain-name-servers
+                    data: "10.8.0.254"
+                  - name: domain-name
+                    data: "lab.local"
+                user-context:
+                  note: Service network
