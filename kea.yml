@@ -81,9 +81,9 @@
         kea_dhcp_ddns:
           dhcp-ddns:
             enable-updates: true
-            dns-server-timeout: 100,
-            ddns-replace-client-name : when-present
-            ddns-update-on-renew : true
+          #  dns-server-timeout: 100,
+          #  ddns-replace-client-name : when-present
+          # ddns-update-on-renew : true
             forward-ddns: 
                 ddns-domains:
                   - name: "lab.mylocal"
