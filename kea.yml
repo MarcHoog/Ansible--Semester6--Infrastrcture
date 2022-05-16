@@ -20,7 +20,7 @@
               max-queue-size: 1024
               ncr-protocol: "UDP"
               ncr-format: "JSON"
-
+        
             ddns-send-updates: true 
             ddns-override-no-update: false
             ddns-override-client-update: true
