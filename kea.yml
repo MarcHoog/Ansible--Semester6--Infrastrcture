@@ -11,15 +11,7 @@
             renew-timer: 1000
             rebind-timer: 2000
 
-            dhcp-ddns:
-              enable-updates: true
-              server-ip: 127.0.0.1
-              serverport: 53001
-              sender-ip: ""
-              sender-port: 0
-              max-queue-size: 1024
-              ncr-protocol: "UDP"
-              ncr-format: "JSON"
+
 
             
             # Add names of interfaces to listen on
@@ -48,11 +40,6 @@
             # Global (inherited by all subnets) lease lifetime is mandatory parameter.
             valid-lifetime: 4000
             
-            # ddns-send-updates: true
-            # ddns-replace-client-name: "never"
-            # ddns-update-on-renew: false
-            # ddns-use-conflict-resolution: true
-
             # Below an example of the simple subnet declarations
             subnet4:
               - subnet: 10.0.0.0/24
