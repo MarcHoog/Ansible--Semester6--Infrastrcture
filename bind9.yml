@@ -1,6 +1,6 @@
 ---
-- name: testing bind9 role
-  hosts: bind9
+- name: testing bind9 
+  hosts: ns1
   tasks: 
     - name: installing bind9 role
       include_role:
@@ -8,19 +8,15 @@
       vars:
         bind_listen_ipv4:
           - 10.0.0.3
-        bind_forwarders:
-          - 8.8.8.8
-          - 8.8.4.4
         bind_allow_query:
-          - any
-        bind_recursion: true
+          - 10.0.0.4
         bind_zones:
-          - name: lab.local             # Domain name
-            create_reverse_zones: true  # Skip creation of reverse zones
+          - name: lab.mylocal          
+            create_reverse_zones: true  
             primaries:
-              - 10.0.0.3                # Primary server(s) for this zone
+              - 10.0.0.3                
             name_servers:
-              - bind9.lab.local.
+              - ns1.lab.mylocal.
             networks:
               -  "10"
             allow_update:
@@ -29,6 +25,31 @@
               - name: bind9
                 ip: 10.0.0.3
                 aliases:
-                  - ns1
-              - name: ansible
-                ip: 10.0.0.1
+                  - bind9
+              - name: ns2
+                ip: 10.0.0.4
+
+- name: creating bind9 recursive server
+  hosts: ns2
+  tasks:
+    - name: installing bind9 role
+      include_role:
+        name: bind9
+      vars:
+        bind_listen_ipv4:
+          - any
+        bind_forward_only: true
+        bind_allow_query:
+          - any
+        bind_forwarders:
+          8.8.8.8
+          8.8.4.4
+        bind_zones:
+          - name: lab.mylocal
+            bind_forwarders:
+              - 10.0.0.3
+            networks:
+              - "10"
+
+
+            
