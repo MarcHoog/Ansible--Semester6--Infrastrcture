@@ -7,10 +7,13 @@
         name: bind9
       vars:
         bind_listen_ipv4:
-          - any
+          - 10.0.0.3
         bind_forwarders:
           - 8.8.8.8
           - 8.8.4.4
+        bind_allow_query:
+          - any
+        bind_recursion: true
         bind_zones:
           - name: lab.local             # Domain name
             create_reverse_zones: true  # Skip creation of reverse zones
