@@ -41,8 +41,8 @@
         bind_allow_query:
           - any
         bind_forwarders:
-          8.8.8.8
-          8.8.4.4
+          - 8.8.8.8
+          - 8.8.4.4
         bind_zones:
           - name: lab.mylocal
             forwarders:
