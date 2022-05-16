@@ -50,7 +50,6 @@
             
             ddns-send-updates: true
             ddns-override-no-update: true
-            ddns-override-client-update: false
             ddns-replace-client-name: "never"
             ddns-update-on-renew: false
             ddns-use-conflict-resolution: true
