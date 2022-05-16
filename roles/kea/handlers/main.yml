@@ -1,14 +1,14 @@
 ---
 - name: check dhcp4 config
   command:  
-    cmd: "dhcp4 -t {{ kea_path }}/{{ kea_dhcp4_conf }}"
+    cmd: "kea-dhcp4 -t {{ kea_path }}/{{ kea_dhcp4_conf }}"
 
 - name: check dhcp6 config
   command: 
-    cmd: "dhcp6 -t {{ kea_path }}/{{ kea_dhcp6_conf }}"
+    cmd: "kea-dhcp6 -t {{ kea_path }}/{{ kea_dhcp6_conf }}"
 
 - name: check dhcp-ddns config
   command: 
-    cmd: dhcp-ddns -t {{ kea_path  }}/
+    cmd: "kea-dhcp-ddns -t {{ kea_path  }}/"
 
 #- name: restart kea-dhcp
