@@ -1,5 +1,5 @@
 ---
-- name: setting up kea dhcp server
+- name: setting up kea server
   hosts: kea
   tasks:
     - name: Importing kea role
