@@ -25,7 +25,7 @@
             networks:
               -  "10"
             allow_update:
-              - 10.0.0.254; key rndc-key
+              - any; key rndc-key
             hosts:
               - name: ns1
                 ip: 10.0.0.10
