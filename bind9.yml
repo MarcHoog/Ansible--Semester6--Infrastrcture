@@ -7,7 +7,7 @@
         name: bind9
       vars:
         bind_listen_ipv4:
-          - 10.0.0.3
+          - any
         bind_allow_query:
           - any
         bind_zones:
