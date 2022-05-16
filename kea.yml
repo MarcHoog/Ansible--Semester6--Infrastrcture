@@ -85,14 +85,12 @@
             dns-server-timeout: 100
             ncr-protocol: "UDP"
             ncr-format: "JSON"
+            tsig-keys: []
             forward-ddns: 
                 ddns-domains:
                   - name: "lab.mylocal"
                     dns-servers:
-                      - 10.0.0.10
-
-            reverse-ddns: 
-                ddns-domains:
-                  - name: "10.in-addr.arpa"
-                    dns-servers:
-                      - 10.0.0.10
+                      - ip-address: 10.0.0.10
+                        port: 53
+            reverse-ddns:
+              ddns-domains: []
