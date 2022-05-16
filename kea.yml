@@ -77,3 +77,21 @@
                     data: "lab.mylocal"
                 user-context:
                   note: Personal network
+        
+        kea_dhcp_ddns:
+          dhcp-ddns:
+            enable-updates: true
+            dns-server-timeout: 100,
+            ddns-replace-client-name : when-present
+            ddns-update-on-renew : true
+            forward-ddns: 
+                ddns-domains:
+                  - name: "lab.mylocal"
+                    dns-servers:
+                      - 10.0.0.10
+
+            reverse-ddns: 
+                ddns-domains:
+                  - name: "10.in-addr.arpa"
+                    dns-servers:
+                      - 10.0.0.10
