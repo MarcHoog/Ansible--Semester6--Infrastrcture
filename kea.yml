@@ -80,7 +80,7 @@
         
         kea_dhcp_ddns:
           dhcp-ddns:
-            enable-updates: true
+          #  enable-updates: true
           #  dns-server-timeout: 100,
           #  ddns-replace-client-name : when-present
           # ddns-update-on-renew : true
