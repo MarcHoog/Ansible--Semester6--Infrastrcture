@@ -45,7 +45,7 @@
           8.8.4.4
         bind_zones:
           - name: lab.mylocal
-            bind_forwarders:
+            forwarders:
               - 10.0.0.3
             networks:
               - "10"
