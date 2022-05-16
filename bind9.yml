@@ -34,6 +34,7 @@
       include_role:
         name: bind9
       vars:
+        bind_recursion: true
         bind_listen_ipv4:
           - any
         bind_allow_query:
@@ -42,7 +43,6 @@
           - 8.8.8.8
           - 8.8.4.4
         bind_zones:
-          - name: lab.mylocal
             forwarders:
               - 10.0.0.3
             networks:
