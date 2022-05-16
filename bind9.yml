@@ -23,10 +23,8 @@
             allow_update:
               - 10.0.0.200
             hosts:
-              - name: bind9
+              - name: ns1
                 ip: 10.0.0.3
-                aliases:
-                  - bind9
               - name: ns2
                 ip: 10.0.0.4
 
