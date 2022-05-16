@@ -15,6 +15,14 @@
               enable-updates: true
               qualifying-suffix: "lab.mylocal."
   
+            ddns-send-updates : true
+            ddns-override-no-update : true
+            ddns-override-client-update : true
+            ddns-replace-client-name : when-present
+            ddns-generated-prefix : mylocal.lab
+            ddns-qualifying-suffix : mylocal.lab.
+            ddns-update-on-renew : false
+
 
             # Add names of interfaces to listen on
             interfaces-config:
