@@ -43,8 +43,10 @@
           - 8.8.8.8
           - 8.8.4.4
         bind_zones:
-            forwarders: 10.0.0.3
-            networks: "10"
+          - forwarders:
+              - 10.0.0.3
+            networks:
+              - "10"
 
 
             
