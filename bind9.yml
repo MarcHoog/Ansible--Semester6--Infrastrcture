@@ -7,9 +7,9 @@
         name: bind9
       vars:
         bind_listen_ipv4:
-          - any
+          - 10.0.0.3
         bind_allow_query:
-          - any
+          - 10.0.0.4
         bind_zones:
           - name: lab.mylocal          
             create_reverse_zones: true  
