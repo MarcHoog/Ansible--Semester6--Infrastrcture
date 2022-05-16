@@ -80,10 +80,11 @@
         
         kea_dhcp_ddns:
           DhcpDdns:
-          #  enable-updates: true
-          #  dns-server-timeout: 100,
-          #  ddns-replace-client-name : when-present
-          # ddns-update-on-renew : true
+            ip-address: 127.0.0.1
+            port: 53001
+            dns-server-timeout: 100
+            ncr-protocol: "UDP"
+            ncr-format: "JSON"
             forward-ddns: 
                 ddns-domains:
                   - name: "lab.mylocal"
