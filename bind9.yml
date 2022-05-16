@@ -37,7 +37,6 @@
       vars:
         bind_listen_ipv4:
           - any
-        bind_forward_only: true
         bind_allow_query:
           - any
         bind_forwarders:
