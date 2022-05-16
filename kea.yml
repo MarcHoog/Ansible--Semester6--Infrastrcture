@@ -28,7 +28,7 @@
             # Setup reclamation of the expired leases and leases affinity.
             expired-leases-processing:
               reclaim-timer-wait-time: 10
-              flush-recl-aimed-timer-wait-time: 25
+              flush-reclaimed-timer-wait-time: 25
               hold-reclaimed-time: 3600
               max-reclaim-leases: 100
               max-reclaim-time: 250

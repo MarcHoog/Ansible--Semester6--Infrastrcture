@@ -1,13 +1,16 @@
 ---
 - name: check dhcp4 config
+  changed_when: False
   command:  
     cmd: "kea-dhcp4 -t {{ kea_path }}/{{ kea_dhcp4_conf }}"
 
 - name: check dhcp6 config
+  changed_when: False
   command: 
     cmd: "kea-dhcp6 -t {{ kea_path }}/{{ kea_dhcp6_conf }}"
 
 - name: check dhcp-ddns config
+  changed_when: False
   command: 
     cmd: "kea-dhcp-ddns -t {{ kea_path  }}/"
 
