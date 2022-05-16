@@ -52,7 +52,7 @@
                 user-context:
                   note: Personalnetwork
 
-              - subnet: 10.0.0./24
+              - subnet: 10.0.0.0/24
                 pools:
                   - pool: 10.0.0.5 - 10.0.0.200
                 option-data:
