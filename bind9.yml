@@ -13,7 +13,7 @@
           - any
         bind_zones:
           - name: lab.local             # Domain name
-            create_reverse_zones: true  # Skip creation of reverse zones
+            create_reverse_zones: false  # Skip creation of reverse zones
             primaries:
               - 10.0.0.3                # Primary server(s) for this zone
             name_servers:
