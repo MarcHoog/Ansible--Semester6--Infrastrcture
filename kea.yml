@@ -59,7 +59,7 @@
                   - name: routers
                     data: "10.8.0.254"
                   - name: domain-name-servers
-                    data: "10.8.0.1"
+                    data: "10.8.0.254"
                   - name: domain-name
                     data: "lab.mylocal"
                 user-context:
@@ -72,7 +72,7 @@
                   - name: routers
                     data: "10.254.0.254"
                   - name: domain-name-servers
-                    data: "10.254.0.1"
+                    data: "10.254.0.254"
                   - name: domain-name
                     data: "lab.mylocal"
                 user-context:
