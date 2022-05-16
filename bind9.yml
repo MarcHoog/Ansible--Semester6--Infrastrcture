@@ -8,6 +8,8 @@
       vars:
         bind_listen_ipv4:
           - any
+        bind_forwarders:
+          - 10.0.0.254
         bind_zones:
           - name: lab.local             # Domain name
             create_reverse_zones: true  # Skip creation of reverse zones
@@ -26,5 +28,3 @@
                   - ns1
               - name: ansible
                 ip: 10.0.0.1
-            forwarders:
-              - 10.0.0.254
