@@ -9,7 +9,8 @@
         bind_listen_ipv4:
           - any
         bind_forwarders:
-          - 10.0.0.254
+          - 8.8.8.8
+          - 8.8.4.4
         bind_zones:
           - name: lab.local             # Domain name
             create_reverse_zones: true  # Skip creation of reverse zones
