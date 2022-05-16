@@ -12,6 +12,6 @@
 - name: check dhcp-ddns config
   changed_when: False
   command: 
-    cmd: "kea-dhcp-ddns -t {{ kea_path  }}/"
+    cmd: "kea-dhcp-ddns -t {{ kea_path  }}/{{ kea_dhcp_ddns_conf }}"
 
 #- name: restart kea-dhcp

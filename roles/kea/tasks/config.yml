@@ -36,3 +36,4 @@
 #    - check kea config
 #    - restart kea-dhcp
   when: kea_dhcp_ddns is defined
+  notify: check dhcp-ddns config
