@@ -10,11 +10,8 @@
           - 10.0.0.10
         bind_allow_query:
           - 10.0.0.1
+          - 10.0.0.10
           - 10.0.0.254
-        bind_dns_keys:
-          - name: rndc-key
-            algorithm: hmac-sha256
-            secret: "0VEPpFjz5uvahWtTtszZl2YEIQd7cNzKWwhlsm7ZVew="
         bind_extra_include_files:
           - "/etc/bind/rndc.key"
         bind_zones:
