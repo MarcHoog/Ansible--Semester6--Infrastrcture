@@ -13,9 +13,13 @@
               - 10.0.0.3                # Primary server(s) for this zone
             name_servers:
               - bind9.lab.local.
-            network: "10."
+            networks:
+              -  "10"
             forwarder:
               - 8.8.8.8
               - 8.8.4.4
             allow_update:
               - 10.0.0.200
+            hosts:
+              - name: ansible
+                ip: 10.0.0.1
