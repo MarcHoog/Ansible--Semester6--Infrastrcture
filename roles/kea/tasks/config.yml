@@ -27,7 +27,7 @@
 - name: config | Configuring Kea DHCP DDNS
   become: true
   template:
-    src: "kea_dhcp_ddns_confs.j2"
+    src: "kea_dhcp_ddns🚀.j2"
     dest: "{{ kea_path }}/{{ kea_dhcp_ddns_conf }}"
     owner: root
     group: root
