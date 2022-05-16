@@ -13,13 +13,12 @@
 
             dhcp-ddns:
               enable-updates: true
+  
 
             # Add names of interfaces to listen on
             interfaces-config:
               interfaces:
                 - "*"
-                # - eth0
-                # - eth1
               dhcp-socket-type: raw
             
             
@@ -50,7 +49,6 @@
               - subnet: 10.0.0.0/24
                 pools:
                   - pool: 10.0.0.50 - 10.0.0.200
-                ddns-qualifying-suffix: "lab.mylocal"
                 option-data:
                   - name: routers
                     data: "10.0.0.254"
@@ -64,7 +62,6 @@
               - subnet: 10.8.0.1/24
                 pools:
                   - pool: 10.8.0.10 - 10.8.0.200
-                ddns-qualifying-suffix: "lab.mylocal"
                 option-data:
                   - name: routers
                     data: "10.8.0.254"
@@ -78,7 +75,6 @@
               - subnet: 10.254.0.0/24
                 pools:
                   - pool: 10.254.0.5 - 10.254.0.200
-                ddns-qualifying-suffix: "lab.mylocal"
                 option-data:
                   - name: routers
                     data: "10.254.0.254"
