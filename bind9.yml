@@ -6,9 +6,6 @@
       include_role:
         name: bind9
       vars:
-        bind_forwarders:
-          - 8.8.8.8
-          - 8.8.4.4
         bind_listen_ipv4:
           - any
         bind_zones:
@@ -25,3 +22,6 @@
             hosts:
               - name: ansible
                 ip: 10.0.0.1
+            forwarders:
+              - 8.8.8.8
+              - 8.8.4.4
