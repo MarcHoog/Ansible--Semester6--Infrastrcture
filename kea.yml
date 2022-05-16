@@ -21,17 +21,6 @@
               ncr-protocol: "UDP"
               ncr-format: "JSON"
 
-            ddns-send-updates: true,
-            ddns-override-no-update: true
-            ddns-override-client-update: false
-            ddns-replace-client-name: "never"
-            ddns-generated-prefix: ""
-            ddns-qualifying-suffix: ""
-            ddns-update-on-renew: false,
-            ddns-use-conflict-resolution: true,
-            hostname-char-set: ""
-            hostname-char-replacement: ""
-
             
             # Add names of interfaces to listen on
             interfaces-config:
@@ -59,6 +48,13 @@
             # Global (inherited by all subnets) lease lifetime is mandatory parameter.
             valid-lifetime: 4000
             
+            ddns-send-updates: true
+            ddns-override-no-update: true
+            ddns-override-client-update: false
+            ddns-replace-client-name: "never"
+            ddns-update-on-renew: false
+            ddns-use-conflict-resolution: true
+
             # Below an example of the simple subnet declarations
             subnet4:
               - subnet: 10.0.0.0/24
