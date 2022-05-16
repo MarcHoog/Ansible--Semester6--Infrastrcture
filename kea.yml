@@ -13,7 +13,7 @@
 
             dhcp-ddns:
               enable-updates: true
-            
+
             # Add names of interfaces to listen on
             interfaces-config:
               interfaces:
@@ -22,6 +22,9 @@
                 # - eth1
               dhcp-socket-type: raw
             
+            
+
+
             # Use Memfile lease database backend to store leases in a CSV file.
             lease-database:
               type: memfile
@@ -39,7 +42,9 @@
               
             # Global (inherited by all subnets) lease lifetime is mandatory parameter.
             valid-lifetime: 4000
-            
+            ddns-qualifying-suffix: "lab.mylocal"
+
+
             # Below an example of the simple subnet declarations
             subnet4:
               - subnet: 10.0.0.0/24
