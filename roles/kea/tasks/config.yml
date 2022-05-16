@@ -7,10 +7,9 @@
     owner: root
     group: root
     mode: o=rw,g=r,o=r
-#  notify:
-#    - check kea-dhcp
-#    - restart kea-dhc
+  notify: check dhcp4 config
   when: kea_dhcp4 is defined
+
 
 - name: config | Configuring Kea DHCPv6
   become: true
