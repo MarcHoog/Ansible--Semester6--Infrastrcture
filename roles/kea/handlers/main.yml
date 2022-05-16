@@ -14,4 +14,13 @@
   command: 
     cmd: "kea-dhcp-ddns -t {{ kea_path  }}/{{ kea_dhcp_ddns_conf }}"
 
+- name: restart kea-dhcp
+  service:
+    name: "{{ item['name'] }}"
+    state: restarted
+  become: true
+  loop: "{{ kea_dhcp_services }}"
+  when:
+    - item['enabled']|bool
+
 #- name: restart kea-dhcp
