@@ -92,10 +92,6 @@
             dns-server-timeout: 100
             ncr-protocol: "UDP"
             ncr-format: "JSON"
-            tsig-keys:
-              - name: rndc-key
-                algorithm: HMAC-SHA256
-                secret: 0VEPpFjz5uvahWtTtszZl2YEIQd7cNzKWwhlsm7ZVew=
 
             forward-ddns: 
                 ddns-domains:
@@ -103,7 +99,6 @@
                     dns-servers:
                       - ip-address: 10.0.0.10
                         port: 53
-                    key-name: rndc-key
 
             reverse-ddns:
               ddns-domains:
@@ -111,4 +106,3 @@
                   dns-servers:
                     - ip-address: 10.0.0.10
                       port: 53
-                  key-name: rndc-key
