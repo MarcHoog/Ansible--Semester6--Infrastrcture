@@ -87,12 +87,6 @@
 
         kea_dhcp_ddns:
           DhcpDdns:
-            ip-address: 127.0.0.1
-            port: 53001
-            dns-server-timeout: 100
-            ncr-protocol: "UDP"
-            ncr-format: "JSON"
-
             forward-ddns: 
                 ddns-domains:
                   - name: "lab.mylocal"
