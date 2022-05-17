@@ -9,9 +9,7 @@
         bind_listen_ipv4:
           - 10.0.0.10
         bind_allow_query:
-          - 10.0.0.1
-          - 10.0.0.10
-          - 10.0.0.254
+          - any
         bind_extra_include_files:
           - "/etc/bind/rndc.key"
         bind_zones:
