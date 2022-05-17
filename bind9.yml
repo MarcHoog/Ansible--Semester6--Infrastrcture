@@ -15,13 +15,13 @@
         bind_extra_include_files:
           - "/etc/bind/rndc.key"
         bind_zones:
-          - name: lab.mylocal          
+          - name: lab.mylocal         
             create_reverse_zones: true  
             bind_zone_minimum_ttl: 60
             primaries:
               - 10.0.0.10                
             name_servers:
-              - ns1
+              - ns1.lab.mylocal.
             networks:
               -  "10"
             allow_update:
