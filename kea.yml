@@ -103,12 +103,12 @@
                     dns-servers:
                       - ip-address: 10.0.0.10
                         port: 53
-                        key-name: rndc-key
+                    key-name: rndc-key
 
             reverse-ddns:
               ddns-domains:
                 - name: "10.in-addr.arpa"
                   dns-servers:
-                      - ip-address: 10.0.0.10
-                        port: 53
-                        key-name: rndc-key
+                    - ip-address: 10.0.0.10
+                      port: 53
+                  key-name: rndc-key
