@@ -9,7 +9,7 @@
     mode: o=rw,g=r,o=r
   notify: 
     - check dhcp4 config
-    - restart kea-dhcp
+  #  - restart kea-dhcp
   when: kea_dhcp4 is defined
 
 
@@ -40,4 +40,4 @@
   when: kea_dhcp_ddns is defined
   notify: 
     - check dhcp-ddns config
-    - restart kea-dhcp
+  #  - restart kea-dhcp
