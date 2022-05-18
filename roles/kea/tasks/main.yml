@@ -7,6 +7,18 @@
   register: result
   until: result is successful
 
+- name: debian | Adding Kea DHCP Repo Key
+  apt_key:
+    url: https://dl.cloudsmith.io/public/isc/kea-2-0/gpg.8029D4AFA58CBB5E.key
+    state: present
+  become: true
+
+- name: debian | Adding Kea DHCP Repo
+  apt_repository:
+    repo: https://dl.cloudsmith.io/public/isc/kea-2-0/cfg/setup/config.deb.txt?distro=ubuntu&codename=focal
+    state: present
+  become: true
+
 - name: Installing Kea DHCP kea_dhcp_packages
   become: true
   ansible.builtin.apt:

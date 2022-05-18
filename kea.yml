@@ -11,6 +11,7 @@
             renew-timer: 1000
             rebind-timer: 2000
 
+            # dhcp-ddns
             dhcp-ddns:
               enable-updates: true
               qualifying-suffix: "lab.mylocal."
