@@ -8,9 +8,6 @@
       vars:
         bind_listen_ipv4:
           - 10.0.0.10
-          - 10.0.0.252
-          - 10.8.0.252
-          - 10.254.0.252
         bind_allow_query:
           - any
         bind_extra_include_files:
@@ -26,7 +23,7 @@
             networks:
               -  "10"
             allow_update:
-              - any; key rndc-key
+              - any
             hosts:
               - name: ns1
                 ip: 10.0.0.10
