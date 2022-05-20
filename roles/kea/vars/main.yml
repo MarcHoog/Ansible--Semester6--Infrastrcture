@@ -13,7 +13,6 @@ kea_dhcp_services:
   - isc-kea-dhcp4-server
   - isc-kea-dhcp6-server
   - isc-kea-doc
-  - isc-kea-ctrl-agent
 
 kea_path: /etc/kea
 
