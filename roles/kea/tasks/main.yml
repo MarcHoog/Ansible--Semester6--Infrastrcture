@@ -10,8 +10,7 @@
 - name: running kea setup script
   become: true
   command:
-    shell: |
-      curl -1sLf 'https://dl.cloudsmith.io/public/isc/kea-2-0/setup.deb.sh' | sudo -E bash
+    cmd: curl -1sLf 'https://dl.cloudsmith.io/public/isc/kea-2-0/setup.deb.sh' | sudo -E bash
     
 
 - name: Installing Kea DHCP kea_dhcp_packages
