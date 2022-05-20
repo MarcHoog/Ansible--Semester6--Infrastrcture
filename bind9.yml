@@ -41,8 +41,6 @@
       include_role:
         name: bind9
       vars:
-        bind_recursion: true
-
         bind_listen_ipv4:
           - any
         bind_allow_query:
