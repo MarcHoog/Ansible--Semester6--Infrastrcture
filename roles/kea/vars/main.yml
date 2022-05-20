@@ -3,15 +3,17 @@ kea_pre_reqs:
   - apt-transport-https
 
 kea_dhcp_packages:
-  - kea-admin
-  - kea-dhcp-ddns-server
-  - kea-dhcp4-server
-  - kea-dhcp6-server
+  - ics-kea-admin
+  - ics-kea-dhcp-ddns-server
+  - ics-kea-dhcp4-server
+  - ics-kea-dhcp6-server
 
 kea_dhcp_services:
   - isc-kea-dhcp-ddns-server
   - isc-kea-dhcp4-server
   - isc-kea-dhcp6-server
+  - isc-kea-doc
+  - isc-kea-ctrl-agent
 
 kea_path: /etc/kea
 
