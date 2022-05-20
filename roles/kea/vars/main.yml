@@ -7,12 +7,14 @@ kea_dhcp_packages:
   - ics-kea-dhcp-ddns-server
   - ics-kea-dhcp4-server
   - ics-kea-dhcp6-server
+  - isc-kea-doc
+  - isc-kea-ctrl-agent
 
 kea_dhcp_services:
   - isc-kea-dhcp-ddns-server
   - isc-kea-dhcp4-server
   - isc-kea-dhcp6-server
-  - isc-kea-doc
+
 
 kea_path: /etc/kea
 
