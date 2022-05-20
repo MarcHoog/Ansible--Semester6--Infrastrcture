@@ -6,8 +6,12 @@
       include_role:
         name: bind9
       vars:
+        bind_recursion: true
         bind_listen_ipv4:
-          - 10.0.0.10
+          - 10.0.0.1
+        bind_forwarders:
+          - 8.8.8.8
+          - 8.8.4.4
         bind_allow_query:
           - any
         bind_extra_include_files:
@@ -17,7 +21,7 @@
             create_reverse_zones: true  
             bind_zone_minimum_ttl: 60
             primaries:
-              - 10.0.0.10                
+              - 10.0.0.1                
             name_servers:
               - ns1.lab.mylocal.
             networks:
@@ -26,35 +30,11 @@
               - any
             hosts:
               - name: ns1
-                ip: 10.0.0.10
-              - name: ns2
                 ip: 10.0.0.1
               - name: ansible
                 ip: 10.0.0.2
               - name: kea
                 ip: 10.0.0.252
-  
-- name: creating bind9 recursive server
-  hosts: ns2
-  tasks:
-    - name: installing bind9 role
-      include_role:
-        name: bind9
-      vars:
-        bind_recursion: true
-        bind_listen_ipv4:
-          - any
-        bind_allow_query:
-          - any
-        bind_forwarders:
-          - 8.8.8.8
-          - 8.8.4.4
-        bind_zones:
-          - name: lab.mylocal  
-            forwarders:
-              - 10.0.0.10
-            networks:
-              - "10"
 
 
             

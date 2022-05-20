@@ -40,8 +40,6 @@
             # Global (inherited by all subnets) lease lifetime is mandatory parameter.
             valid-lifetime: 4000
 
-
-
             # Below an example of the simple subnet declarations
             subnet4:
               - subnet: 10.0.0.0/24
@@ -89,12 +87,12 @@
                 ddns-domains:
                   - name: "lab.mylocal."
                     dns-servers:
-                      - ip-address: 10.0.0.10
+                      - ip-address: 10.0.0.1
                         port: 53
 
             reverse-ddns:
               ddns-domains:
                 - name: "10.in-addr.arpa."
                   dns-servers:
-                    - ip-address: 10.0.0.10
+                    - ip-address: 10.0.0.1
                       port: 53
