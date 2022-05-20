@@ -14,16 +14,13 @@
             # dhcp-ddns
             dhcp-ddns:
               enable-updates: true
-              qualifying-suffix: "lab.mylocal."
+              qualifying-suffix: "lab.mylocal"
 
             # Add names of interfaces to listen on
             interfaces-config:
               interfaces:
                 - "*"
               dhcp-socket-type: raw
-
-
-
 
             # Use Memfile lease database backend to store leases in a CSV file.
             lease-database:
