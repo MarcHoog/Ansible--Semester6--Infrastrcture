@@ -3,9 +3,9 @@ kea_pre_reqs:
   - apt-transport-https
 
 kea_dhcp_packages:
-  - ics-kea-dhcp-ddns-server
-  - ics-kea-dhcp4-server
-  - ics-kea-dhcp6-server
+  - isc-kea-dhcp-ddns-server
+  - isc-kea-dhcp4-server
+  - isc-kea-dhcp6-server
 
 kea_dhcp_services:
   - isc-kea-dhcp-ddns-server
