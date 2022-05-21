@@ -72,17 +72,17 @@
                   note: Kubernetes network
                 reservations:
                   - hostname: kube-master00
-                    ip-address: 10.0.0.1
+                    ip-address: 10.8.0.1
                   - hostname: kube-nfs
-                    ip-address: 10.0.0.2
+                    ip-address: 10.8.0.2
                   - hostname: kube-worker01
-                    ip-address: 10.0.0.3
+                    ip-address: 10.8.0.3
                   - hostname: kube-worker02
-                    ip-address: 10.0.0.4
+                    ip-address: 10.8.0.4
                   - hostname: kube-worker03
-                    ip-address: 10.0.0.5
+                    ip-address: 10.8.0.5
                   - hostname: kube-worker04
-                    ip-address: 10.0.0.6
+                    ip-address: 10.8.0.6
                     
 
               - subnet: 10.254.0.0/24
