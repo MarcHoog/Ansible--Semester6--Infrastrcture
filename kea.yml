@@ -8,8 +8,6 @@
       vars:
         kea_dhcp4:
           Dhcp4:
-            renew-timer: 1000
-            rebind-timer: 2000
 
             # dhcp-ddns
             dhcp-ddns:
@@ -37,8 +35,13 @@
               max-reclaim-time: 250
               unwarned-reclaim-cycles: 5
 
+
+            ddns-update-on-renew: true
+
             # Global (inherited by all subnets) lease lifetime is mandatory parameter.
-            valid-lifetime: 4000
+            valid-lifetime: 400
+            renew-timer: 100
+            rebind-timer: 200
 
             # Below an example of the simple subnet declarations
             subnet4:
@@ -95,4 +98,4 @@
                 - name: "10.in-addr.arpa."
                   dns-servers:
                     - ip-address: 10.0.0.1
-                      port: 53
+                      port: 53  
