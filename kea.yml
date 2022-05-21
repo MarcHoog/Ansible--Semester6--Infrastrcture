@@ -12,7 +12,7 @@
             # dhcp-ddns
             dhcp-ddns:
               enable-updates: true
-              qualifying-suffix: "lab.mylocal"
+              qualifying-suffix: "lab.mylocal."
 
             # Add names of interfaces to listen on
             interfaces-config:
@@ -70,6 +70,20 @@
                     data: "lab.mylocal"
                 user-context:
                   note: Kubernetes network
+                reservations:
+                  - hostname: kube-master00
+                    ip-address: 10.0.0.1
+                  - hostname: kube-nfs
+                    ip-address: 10.0.0.2
+                  - hostname: kube-worker01
+                    ip-address: 10.0.0.3
+                  - hostname: kube-worker02
+                    ip-address: 10.0.0.4
+                  - hostname: kube-worker03
+                    ip-address: 10.0.0.5
+                  - hostname: kube-worker04
+                    ip-address: 10.0.0.6
+                    
 
               - subnet: 10.254.0.0/24
                 pools:
