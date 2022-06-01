@@ -4,6 +4,10 @@
     - name: apt-update
       command: apt update
       changed_when: False
+      register: result
+      until: result is successful
+      delay: 6
+      retries: 10
 
     - name: install qemu quest agent on all machines
       ansible.builtin.apt:
