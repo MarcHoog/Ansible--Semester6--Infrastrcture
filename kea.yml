@@ -12,7 +12,7 @@
             # dhcp-ddns
             dhcp-ddns:
               enable-updates: true
-              qualifying-suffix: "lab.mylocal."
+              
 
             # Add names of interfaces to listen on
             interfaces-config:
@@ -35,7 +35,7 @@
               max-reclaim-time: 250
               unwarned-reclaim-cycles: 5
 
-
+            ddns-qualifying-suffix: "lab.mylocal."
             ddns-update-on-renew: true
 
             # Global (inherited by all subnets) lease lifetime is mandatory parameter.
@@ -47,7 +47,7 @@
             subnet4:
               - subnet: 10.0.0.0/24
                 pools:
-                  - pool: 10.0.0.50 - 10.0.0.200
+                  - pool: 10.0.0.100 - 10.0.0.200
                 option-data:
                   - name: routers
                     data: "10.0.0.254"
@@ -60,7 +60,7 @@
 
               - subnet: 10.8.0.1/24
                 pools:
-                  - pool: 10.8.0.10 - 10.8.0.200
+                  - pool: 10.8.0.100 - 10.8.0.200
                 option-data:
                   - name: routers
                     data: "10.8.0.254"
@@ -70,24 +70,10 @@
                     data: "lab.mylocal"
                 user-context:
                   note: Kubernetes network
-                reservations:
-                  - hostname: kube-master00
-                    ip-address: 10.8.0.1
-                  - hostname: kube-nfs
-                    ip-address: 10.8.0.2
-                  - hostname: kube-worker01
-                    ip-address: 10.8.0.3
-                  - hostname: kube-worker02
-                    ip-address: 10.8.0.4
-                  - hostname: kube-worker03
-                    ip-address: 10.8.0.5
-                  - hostname: kube-worker04
-                    ip-address: 10.8.0.6
                     
-
               - subnet: 10.254.0.0/24
                 pools:
-                  - pool: 10.254.0.5 - 10.254.0.200
+                  - pool: 10.254.0.100 - 10.254.0.200
                 option-data:
                   - name: routers
                     data: "10.254.0.254"
@@ -112,4 +98,4 @@
                 - name: "10.in-addr.arpa."
                   dns-servers:
                     - ip-address: 10.0.0.1
-                      port: 53  
+                      port: 53
