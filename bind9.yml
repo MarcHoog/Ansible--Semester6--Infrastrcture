@@ -38,6 +38,15 @@
                 ip: 10.0.0.2
               - name: kea
                 ip: 10.0.0.252
-
-
+              
+              # Kubernetes things
+              - name: kube-master00
+                ip: 10.8.0.1
+              - name: kube-worker01
+                ip: 10.8.0.2
+              - name: kube-worker02
+                ip: 10.8.0.3
+              - name: kube-nfs
+                ip: 10.8.0.200
+              
             
