@@ -1,0 +1,32 @@
+- name: add helm repository for celium
+  kubernetes.core.helm_repository:
+    name: nfs-subdir-external-provisioner
+    repo_url: https://helm.cilium.io/
+
+- name: helm install cilium
+  kubernetes.core.helm:
+    name: cilium
+    chart_ref: cilium/cilium 
+    chart_version: 1.11.5
+    release_namespace: kube-system
+
+- name: get the cilium CLI Package
+  get_url:
+    url: "https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz{,.sha256sum}"
+    dest: "/tmp/cilium.tar.gz"
+    checksum_algorithm: sha256sum
+    get_checksum: yes
+
+- name: Install the cilium tar Package
+  
+
+
+- name: cilium connectivity test command
+  shell:
+    cmd: cilium connectivity test
+  register: cilium_result
+
+- debug:
+  msg: cilium_result
+
+
