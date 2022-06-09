@@ -23,6 +23,7 @@
     dest: /tmp/cilium.tar.gz
 
 - name: Extract cilium.tar.gz into /usr/local/bin
+  become: true
   ansible.builtin.unarchive:
     src: /tmp/cilium.tar.gz
     dest: /usr/local/bin
