@@ -39,6 +39,7 @@
 
 - import_playbook: playbooks/kubernetes/initialize_cluster.yml
 
+- import_playbook: playbooks/kubernetes/worker_join_cluster.yml
 
 - name: install kubernetes helm
   hosts: kubernetes_masters
@@ -66,6 +67,6 @@
 
 - import_playbook: playbooks/kubernetes/default_stroge_class.yml
 
-- import_playbook: playbooks/kubernetes/worker_join_cluster.yml
+
 
 # - import_playbook: playbooks/kubernetes/initialize_cluster_network.yml4
