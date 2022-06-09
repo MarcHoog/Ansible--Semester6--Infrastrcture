@@ -26,6 +26,7 @@
   ansible.builtin.unarchive:
     src: /tmp/cilium.tar.gz
     dest: /usr/local/bin
+    remote_src: yes
 
 - name: cilium connectivity test command
   shell:
