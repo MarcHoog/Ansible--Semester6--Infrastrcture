@@ -25,9 +25,10 @@
 - name: cilium connectivity test command
   shell:
     cmd: cilium connectivity test
-  register: cilium_result
+  register: ciliumResult
 
-- debug:
-  msg: cilium_result
+- name: Printing Cilium result command
+  debug:
+    msg: ciliumResult
 
 
