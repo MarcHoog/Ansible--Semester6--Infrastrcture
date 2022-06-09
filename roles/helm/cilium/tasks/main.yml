@@ -1,6 +1,6 @@
 - name: add helm repository for celium
   kubernetes.core.helm_repository:
-    name: nfs-subdir-external-provisioner
+    name: cilium
     repo_url: https://helm.cilium.io/
 
 - name: helm install cilium
@@ -17,9 +17,10 @@
     checksum_algorithm: sha256sum
     get_checksum: yes
 
-- name: Install the cilium tar Package
-  
-
+- name: Extract cilium.tar.gz into /usr/local/bin
+  ansible.builtin.unarchive:
+    src: /tmp/cilium.tar.gz
+    dest: /usr/local/bin
 
 - name: cilium connectivity test command
   shell:
