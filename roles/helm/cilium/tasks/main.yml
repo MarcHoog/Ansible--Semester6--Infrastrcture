@@ -31,7 +31,7 @@
 
 - name: cilium connectivity test command
   shell:
-    cmd: cilium connectivity test
+    cmd: cilium status
   register: ciliumResult
 
 - name: Printing Cilium result command
