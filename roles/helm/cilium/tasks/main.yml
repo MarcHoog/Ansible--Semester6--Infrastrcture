@@ -12,10 +12,9 @@
 
 - name: get the cilium CLI Package
   get_url:
-    url: "https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz{,.sha256sum}"
+    url: "https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz"
+    checksum: "{{ cilium_sha256sum }}"
     dest: "/tmp/cilium.tar.gz"
-    checksum_algorithm: sha256sum
-    get_checksum: yes
 
 - name: Extract cilium.tar.gz into /usr/local/bin
   ansible.builtin.unarchive:
