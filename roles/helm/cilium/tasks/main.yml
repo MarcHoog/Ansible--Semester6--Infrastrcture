@@ -9,12 +9,17 @@
     chart_ref: cilium/cilium 
     chart_version: 1.11.5
     release_namespace: kube-system
+    values:
+      hubble:
+        relay:
+          enabled: true
+        ui:
+          enabled: true
 
+# SHOULD CHECK CHECKSUM OF THIS PACKAGE BUT, YEH NOH
 - name: get the cilium CLI Package
   get_url:
     url: "https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz"
-    checksum: "{{ cilium_sha256sum }}"
-    dest: "/tmp/cilium.tar.gz"
 
 - name: Extract cilium.tar.gz into /usr/local/bin
   ansible.builtin.unarchive:
