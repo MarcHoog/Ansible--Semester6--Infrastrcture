@@ -14,8 +14,6 @@
       k8sServiceHost: 10.8.0.1
       k8sServicePort: 6443
       kubeProxyReplacement: strict
-      operator:
-        replicas: 1
       externalIPs:
         enabled: true
       hostFirewall: false
