@@ -50,18 +50,11 @@
 
 - import_playbook: playbooks/kubernetes/worker_join_cluster.yml
 
-- name: import cilium CLI
-  hosts: kubernetes_masters
-  gather_facts: false
-  roles:
-    - cilium/cli
-
 - name: install kubernetes helm
   hosts: kubernetes_masters
   gather_facts: false
   roles:
     - helm
-    - helm/cilium
     - helm/nfs-subdir
 
   tasks:
@@ -82,7 +75,12 @@
 
 - import_playbook: playbooks/kubernetes/default_stroge_class.yml
 
-
+- name: import cilium CLI
+  hosts: kubernetes_masters
+  gather_facts: false
+  roles:
+    - cilium/cli
+    - helm/cilium
 
 
 # - import_playbook: playbooks/kubernetes/initialize_cluster_network.yml4
