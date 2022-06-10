@@ -11,6 +11,7 @@
     chart_version: 1.11.5
     release_namespace: kube-system
     values:
+      k8sServiceHost: kube-master00
       hubble:
         relay:
           enabled: true
