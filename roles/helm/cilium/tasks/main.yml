@@ -25,7 +25,6 @@
         enabled: true
       bpf:
         masquerade: true
-      # Needed to replace kube-proxy
       hostServices:
         enabled: true
         protocols: tcp,udp
