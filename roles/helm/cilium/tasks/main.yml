@@ -16,15 +16,13 @@
       kubeProxyReplacement: strict
       externalIPs:
         enabled: true
-      hostFirewall: false
       ipam:
         mode: kubernetes
       k8s:
         requireIPv4PodCIDR: true
       egressGateway:
         enabled: true
-      bpf:
-        masquerade: true
+      # Needed to replace kube-proxy
       hostServices:
         enabled: true
         protocols: tcp,udp
