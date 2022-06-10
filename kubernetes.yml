@@ -37,6 +37,11 @@
     - kubernetes/controller
   tasks:
 
+- name: Reboot a slow machine that might have lots of updates to apply
+  become: true
+  reboot:
+    reboot_timeout: 3600
+
 - import_playbook: playbooks/kubernetes/initialize_cluster.yml
 
 - import_playbook: playbooks/kubernetes/worker_join_cluster.yml
