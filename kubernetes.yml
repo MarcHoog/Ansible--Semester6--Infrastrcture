@@ -47,7 +47,6 @@
   roles:
     - helm
     - helm/nfs-subdir
-  #  - helm/cilium
 
   tasks:
     - name: Install pip
@@ -67,11 +66,11 @@
 
 - import_playbook: playbooks/kubernetes/default_stroge_class.yml
 
-# - name: import cilium CLI
-#    hosts: kubernetes_master
-#     gather_facts: false
-#     roles:
-#        - cilium
+- name: import cilium CLI
+  hosts: kubernetes_masters
+  gather_facts: false
+  roles:
+    - cilium/cli
 
 
 
