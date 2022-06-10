@@ -19,10 +19,4 @@
         ui:
           enabled: true
       ipam:
-        # -- Configure IP Address Management mode.
-        # ref: https://docs.cilium.io/en/stable/concepts/networking/ipam/
-        mode: "cluster-pool"
-        operator:
-          # -- Deprecated in favor of ipam.operator.clusterPoolIPv4PodCIDRList.
-          # IPv4 CIDR range to delegate to individual nodes for IPAM.
-          clusterPoolIPv4PodCIDR: "10.99.0.0/8"
+        mode: "kubernetes"
