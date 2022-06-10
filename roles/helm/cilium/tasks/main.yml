@@ -1,0 +1,18 @@
+---
+- name: add helm repository for celium
+  kubernetes.core.helm_repository:
+    name: cilium
+    repo_url: https://helm.cilium.io/
+
+- name: helm install cilium
+  kubernetes.core.helm:
+    name: cilium
+    chart_ref: cilium/cilium 
+    chart_version: 1.11.5
+    release_namespace: kube-system
+    values:
+      hubble:
+        relay:
+          enabled: true
+        ui:
+          enabled: true
