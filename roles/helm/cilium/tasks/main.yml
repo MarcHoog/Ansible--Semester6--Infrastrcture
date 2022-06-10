@@ -11,7 +11,7 @@
     chart_version: 1.11.5
     release_namespace: kube-system
     values:
-      k8sServiceHost: kube-master00
+      k8sServiceHost: 10.8.0.1
       k8sServicePort: 6443
       hubble:
         relay:
