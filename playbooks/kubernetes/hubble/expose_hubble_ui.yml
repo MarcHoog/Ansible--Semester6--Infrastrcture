@@ -6,7 +6,7 @@
 
     - name: expose hubble-ui
       k8s:
-        state: present
+        state: absent
         kind: Service
         namespace: kube-system
         definition:
