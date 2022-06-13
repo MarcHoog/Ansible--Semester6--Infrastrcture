@@ -19,4 +19,9 @@
         operator:
           clusterPoolIPv4PodCIDR: "172.16.0.0/12"
           clusterPoolIPv4PodCIDRList: ["172.16.0.0/12"]
-          clusterPoolIPv4MaskSize: 24   
+          clusterPoolIPv4MaskSize: 24
+      hubble:
+        relay:
+          enabled: true
+        ui:
+          enabled: true   
