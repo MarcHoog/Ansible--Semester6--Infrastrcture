@@ -8,12 +8,13 @@
       k8s:
         state: present
         kind: Service
-        metadata:
-          name: hubble-ui
-        spec:
-          type: NodePort
-          ports:
-            - port: 8081
-              nodeport: 12000
-              protocol: TCP
+        definition:
+          metadata:
+            name: hubble-ui
+          spec:
+            type: NodePort
+            ports:
+              - port: 8081
+                nodeport: 12000
+                protocol: TCP
 
