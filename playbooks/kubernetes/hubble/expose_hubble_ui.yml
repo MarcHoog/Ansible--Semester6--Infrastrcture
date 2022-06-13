@@ -8,6 +8,7 @@
       k8s:
         state: present
         kind: Service
+        namespace: kube-system
         definition:
           metadata:
             name: hubble-ui
