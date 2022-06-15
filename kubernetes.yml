@@ -55,7 +55,6 @@
   gather_facts: false
   roles:
     - helm
-    - helm/nfs-subdir
 
   tasks:
     - name: Install pip
