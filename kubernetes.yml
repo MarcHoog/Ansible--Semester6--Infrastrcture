@@ -72,8 +72,6 @@
       vars:
         ansible_python_interpreter: /usr/bin/python3
 
-- import_playbook: playbooks/kubernetes/default_stroge_class.yml
-
 - name: import cilium CLI
   hosts: kubernetes_masters
   gather_facts: false
