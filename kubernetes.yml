@@ -50,11 +50,13 @@
 
 - import_playbook: playbooks/kubernetes/worker_join_cluster.yml
 
-- name: install kubernetes helm
+- name: Final prep of kubernetes cluster
   hosts: kubernetes_masters
   gather_facts: false
   roles:
     - helm
+    - cilium
+    - flux
 
   tasks:
     - name: Install pip
@@ -71,18 +73,5 @@
         - kubernetes==11.00.0 
       vars:
         ansible_python_interpreter: /usr/bin/python3
-
-- name: import cilium CLI
-  hosts: kubernetes_masters
-  gather_facts: false
-  roles:
-    - cilium/cli
-    - helm/cilium
-
-- name: import Flux CLI
-  hosts: kubernetes_masters
-  gather_facts: false
-  roles:
-    - flux
 
 # - import_playbook: playbooks/kubernetes/initialize_cluster_network.yml4
