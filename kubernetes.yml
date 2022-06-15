@@ -55,6 +55,7 @@
   gather_facts: false
   roles:
     - helm
+    - helm/cilium
     - cilium
     - flux
 

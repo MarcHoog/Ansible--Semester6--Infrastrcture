@@ -1,3 +1,0 @@
----
-nfs_path: /srv/nfs4/kubernetes
-nfs_server: kube-nfs
