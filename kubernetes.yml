@@ -81,5 +81,10 @@
     - cilium/cli
     - helm/cilium
 
+- name: import Flux CLI
+  hosts: kubernetes_masters
+  gather_facts: false
+  roles:
+    - flux
 
 # - import_playbook: playbooks/kubernetes/initialize_cluster_network.yml4
