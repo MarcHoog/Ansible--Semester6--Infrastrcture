@@ -1,13 +1,13 @@
 ---
 - name: get the cilium CLI Package
   get_url:
-    url: "https://github.com/cilium/cilium-cli/releases/latest/download/cilium-linux-amd64.tar.gz"
-    dest: /tmp/cilium.tar.gz
+    url: "https://github.com/fluxcd/flux2/releases/download/v0.31.1/flux_0.31.1_linux_amd64.tar.gz"
+    dest: /tmp/flux.tar.gz
 
 - name: Extract cilium.tar.gz into /usr/local/bin
   become: true
   ansible.builtin.unarchive:
-    src: /tmp/cilium.tar.gz
+    src: /tmp/flux.tar.gz
     dest: /usr/local/bin
     remote_src: yes
 
